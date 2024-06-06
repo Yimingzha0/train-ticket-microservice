@@ -1,7 +1,7 @@
 import os
 
-PREFIX = "codewisdom"
-VERSION = "0.2.0"
+PREFIX = "yimingzha0"
+VERSION = "0.2.3"
 
 base_path = os.getcwd()
 build_paths = []
@@ -11,7 +11,7 @@ def main():
     if not mvn_build():
         print("mvn build failed")
     init_docker_build_paths()
-    # docker_login()
+    #docker_login()
     docker_build_and_push()
 
 
@@ -30,8 +30,8 @@ def init_docker_build_paths():
 
 
 def docker_login():
-    username = os.getenv("DOCKER_USERNAME")
-    docker_hub_address = os.getenv("DOCKER_HUB_ADDRESS") or "registry.cn-hangzhou.aliyuncs.com"
+    username = "yiming99"
+    docker_hub_address = "hub.docker.com"
     print(f"[DOCKER HUB LOGIN] login username:{username} address:{docker_hub_address}")
     print(f"[DOCKER HUB LOGIN] You should input your root password first and then dockerhub password")
     docker_login = os.system(f"sudo docker login --username={username} {docker_hub_address}")
@@ -46,17 +46,20 @@ def docker_build_and_push():
         os.chdir(build_path)
         files = os.listdir(build_path)
         if "Dockerfile" in files:
-            docker_build = os.system(f"sudo docker build . -t {PREFIX}/{image_name}:{VERSION}")
+            #print dockerfile path
+            print(f"[DOCKER BUILD] {build_path}")
+            docker_buildx_command = f"sudo docker buildx build --platform linux/amd64,linux/arm64 -t {PREFIX}/{image_name}:{VERSION} --push ."
+            docker_build = os.system(docker_buildx_command)
             if docker_build != 0:
                 print("[FAIL]" + image_name + " build failed.")
             else:
                 print("[SUCCESS]" + image_name + " build success.")
 
-            docker_push = os.system(f"sudo docker push {PREFIX}/{image_name}:{VERSION}")
-            if docker_push != 0:
-                print("[FAIL]" + image_name + " push failed.")
-            else:
-                print("[SUCCESS]" + image_name + " push success.")
+            #docker_push = os.system(f"sudo docker push {PREFIX}/{image_name}:{VERSION}")
+            #if docker_push != 0:
+            #    print("[FAIL]" + image_name + " push failed.")
+            #else:
+            #    print("[SUCCESS]" + image_name + " push success.")
 
 
 if __name__ == '__main__':

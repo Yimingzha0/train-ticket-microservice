@@ -25,11 +25,6 @@ public class RouteController {
     @Autowired
     private RouteService routeService;
 
-    @GetMapping(path = "/welcome")
-    public String home() {
-        return "Welcome to [ Route Service ] !";
-    }
-
     @PostMapping(path = "/routes")
     public ResponseEntity<Response> createAndModifyRoute(@RequestBody RouteInfo createAndModifyRouteInfo, @RequestHeader HttpHeaders headers) {
         RouteController.LOGGER.info("[createAndModify][Create route][start: {}, end: {}]", createAndModifyRouteInfo.getStartStation(),createAndModifyRouteInfo.getEndStation());

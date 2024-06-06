@@ -26,11 +26,6 @@ public class AdminBasicInfoController {
     AdminBasicInfoService adminBasicInfoService;
     private static final Logger LOGGER = LoggerFactory.getLogger(AdminBasicInfoController.class);
 
-    @GetMapping(path = "/welcome")
-    public String home(@RequestHeader HttpHeaders headers) {
-        return "Welcome to [ AdminBasicInfo Service ] !";
-    }
-
     @CrossOrigin(origins = "*")
     @GetMapping(path = "/adminbasic/contacts")
     public HttpEntity getAllContacts(@RequestHeader HttpHeaders headers) {

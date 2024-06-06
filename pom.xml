@@ -15,7 +15,11 @@
     </parent>
 
     <modules>
+        <module>ts-discovery-service</module>
+        <module>ts-price-service</module>
         <module>ts-common</module>
+    </modules>
+       <!--
         <module>ts-verification-code-service</module>
         <module>ts-contacts-service</module>
         <module>ts-order-service</module>
@@ -54,10 +58,10 @@
         <module>ts-user-service</module>
         <module>ts-delivery-service</module>
         <module>ts-train-food-service</module>
-        <module>ts-gateway-service</module>
         <module>ts-food-delivery-service</module>
         <module>ts-wait-order-service</module>
-    </modules>
+
+    </modules>-->
 
 
     <dependencies>
@@ -66,11 +70,6 @@
         <!--        springcloud 相关依赖 在dependency management中-->
 
         <!--        nacos服务发现相关依赖-->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-            <version>2.2.7.RELEASE</version>
-        </dependency>
 
         <!--        springboot相关依赖-->
         <dependency>
@@ -158,13 +157,6 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>Hoxton.SR12</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>2.2.7.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

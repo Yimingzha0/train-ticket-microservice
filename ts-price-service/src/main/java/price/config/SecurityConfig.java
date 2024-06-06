@@ -21,7 +21,6 @@ import static org.springframework.web.cors.CorsConfiguration.ALL;
 /**
  * @author fdse
  */
-@Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -81,6 +80,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and()
                 .addFilterBefore(new JWTFilter(), UsernamePasswordAuthenticationFilter.class);
+        httpSecurity.csrf().ignoringAntMatchers("/eureka/**");
 
         // close cache
         httpSecurity.headers().cacheControl();
