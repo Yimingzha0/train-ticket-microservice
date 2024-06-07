@@ -5,7 +5,7 @@ spring:
   application:
     name: ts-train-food-service
   datasource:
-    url: jdbc:mysql://${TRAIN_FOOD_MYSQL_HOST:ts-price-mysql}:${TRAIN_FOOD_MYSQL_PORT:3306}/${TRAIN_FOOD_MYSQL_DATABASE:ts-price-mysql}?allowPublicKeyRetrieval=true&?useSSL=false
+    url: jdbc:mysql://${TRAIN_FOOD_MYSQL_HOST:ts-price-mysql}:${TRAIN_FOOD_MYSQL_PORT:3306}/${TRAIN_FOOD_MYSQL_DATABASE:ts-price-mysql}?allowPublicKeyRetrieval=true&useSSL=false
     username: ${TRAIN_FOOD_MYSQL_USER:root}
     password: ${TRAIN_FOOD_MYSQL_PASSWORD:zhaoyiming.18}
     driver-class-name: com.mysql.cj.jdbc.Driver

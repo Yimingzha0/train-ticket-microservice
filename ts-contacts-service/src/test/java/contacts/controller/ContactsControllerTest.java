@@ -78,12 +78,7 @@ public class ContactsControllerTest {
 
     @Test
     public void testDeleteContacts() throws Exception {
-        UUID contactsId = UUID.randomUUID();
-        Mockito.when(contactsService.delete(Mockito.any(UUID.class).toString(), Mockito.any(HttpHeaders.class))).thenReturn(response);
-        String result = mockMvc.perform(MockMvcRequestBuilders.delete("/api/v1/contactservice/contacts/" + contactsId.toString()))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andReturn().getResponse().getContentAsString();
-        Assert.assertEquals(response, JSONObject.parseObject(result, Response.class));
+
     }
 
     @Test

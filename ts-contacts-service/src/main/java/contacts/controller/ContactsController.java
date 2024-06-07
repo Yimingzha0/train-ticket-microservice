@@ -56,13 +56,6 @@ public class ContactsController {
 
 
     @CrossOrigin(origins = "*")
-    @DeleteMapping(path = "/contacts/{contactsId}")
-    public HttpEntity deleteContacts(@PathVariable String contactsId, @RequestHeader HttpHeaders headers) {
-        return ok(contactsService.delete(contactsId, headers));
-    }
-
-
-    @CrossOrigin(origins = "*")
     @PutMapping(path = "/contacts")
     public HttpEntity modifyContacts(@RequestBody Contacts info, @RequestHeader HttpHeaders headers) {
         ContactsController.LOGGER.info("[Contacts modifyContacts][Modify Contacts] ContactsId: {}", info.getId());

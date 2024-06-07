@@ -73,19 +73,6 @@ public class ContactsServiceImpl implements ContactsService {
     }
 
     @Override
-    public Response delete(String contactsId, HttpHeaders headers) {
-        contactsRepository.deleteById(contactsId);
-        Contacts contacts = contactsRepository.findById(contactsId).orElse(null);
-        if (contacts == null) {
-            ContactsServiceImpl.LOGGER.info("[Contacts-Add&Delete-Service][DeleteContacts Success]");
-            return new Response<>(1, "Delete success", contactsId);
-        } else {
-            ContactsServiceImpl.LOGGER.error("[Contacts-Add&Delete-Service][DeleteContacts][Fail.Reason not clear][contactsId: {}]", contactsId);
-            return new Response<>(0, "Delete failed", contactsId);
-        }
-    }
-
-    @Override
     public Response modify(Contacts contacts, HttpHeaders headers) {
         headers = null;
         Response oldContactResponse = findContactsById(contacts.getId(), headers);

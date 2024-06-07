@@ -29,14 +29,6 @@ public interface ContactsService {
      */
     Response create(Contacts addContacts, HttpHeaders headers);
 
-    /**
-     * delete
-     *
-     * @param contactsId contacts id
-     * @param headers headers
-     * @return Reaponse
-     */
-    Response delete(String contactsId, HttpHeaders headers);
 
     /**
      * modify

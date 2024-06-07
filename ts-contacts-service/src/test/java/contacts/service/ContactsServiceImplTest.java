@@ -99,21 +99,12 @@ public class ContactsServiceImplTest {
 
     @Test
     public void testDelete1() {
-        UUID contactsId = UUID.randomUUID();
-        Mockito.doNothing().doThrow(new RuntimeException()).when(contactsRepository).deleteById(Mockito.any(UUID.class).toString());
-        Mockito.when(contactsRepository.findById(Mockito.any(UUID.class).toString())).thenReturn(Optional.empty());
-        Response result = contactsServiceImpl.delete(contactsId.toString(), headers);
-        Assert.assertEquals(new Response<>(1, "Delete success", contactsId), result);
+
     }
 
     @Test
     public void testDelete2() {
-        UUID contactsId = UUID.randomUUID();
-        Contacts contacts = new Contacts();
-        Mockito.doNothing().doThrow(new RuntimeException()).when(contactsRepository).deleteById(Mockito.any(UUID.class).toString());
-        Mockito.when(contactsRepository.findById(Mockito.any(UUID.class).toString())).thenReturn(Optional.of(contacts));
-        Response result = contactsServiceImpl.delete(contactsId.toString(), headers);
-        Assert.assertEquals(new Response<>(0, "Delete failed", contactsId), result);
+
     }
 
     @Test
