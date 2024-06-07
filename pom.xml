@@ -18,14 +18,16 @@
         <module>ts-discovery-service</module>
         <module>ts-price-service</module>
         <module>ts-common</module>
+        <module>ts-train-food-service</module>
+        <module>ts-contacts-service</module>
+        <module>ts-station-service</module>
     </modules>
        <!--
+       <module>ts-food-service</module>
         <module>ts-verification-code-service</module>
-        <module>ts-contacts-service</module>
         <module>ts-order-service</module>
         <module>ts-order-other-service</module>
         <module>ts-config-service</module>
-        <module>ts-station-service</module>
         <module>ts-train-service</module>
         <module>ts-travel-service</module>
         <module>ts-travel2-service</module>
@@ -45,7 +47,6 @@
         <module>ts-seat-service</module>
         <module>ts-travel-plan-service</module>
         <module>ts-route-plan-service</module>
-        <module>ts-food-service</module>
         <module>ts-station-food-service</module>
         <module>ts-consign-price-service</module>
         <module>ts-consign-service</module>
@@ -57,7 +58,6 @@
         <module>ts-auth-service</module>
         <module>ts-user-service</module>
         <module>ts-delivery-service</module>
-        <module>ts-train-food-service</module>
         <module>ts-food-delivery-service</module>
         <module>ts-wait-order-service</module>
 

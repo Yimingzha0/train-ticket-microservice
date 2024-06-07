@@ -17,7 +17,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableAsync
 @IntegrationComponentScan
 @EnableSwagger2
-@EnableDiscoveryClient
 public class FoodApplication {
 
     public static void main(String[] args) {
