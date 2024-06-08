@@ -12,7 +12,7 @@ rabbitmqCharts=deployment/kubernetes-manifests/quickstart-k8s/charts/rabbitmq
 nacosDBRelease="nacosdb"
 nacosDBHost="${nacosDBRelease}-mysql-leader"
 nacosDBUser="nacos"
-nacosDBPass="Abcd1234#"
+nacosDBPass="zhaoyiming.18"
 nacosDBName="nacos"
 
 # nacos server parameters
