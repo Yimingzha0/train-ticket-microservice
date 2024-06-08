@@ -19,7 +19,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 @EnableAsync
 @IntegrationComponentScan
-@EnableDiscoveryClient
 @EnableSwagger2
 public class UserApplication {
     public static void main(String[] args) {

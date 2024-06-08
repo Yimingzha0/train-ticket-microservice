@@ -62,11 +62,6 @@ public class UserServiceImpl implements UserService {
         // avoid same user name
         User user1 = userRepository.findByUserName(userDto.getUserName());
         if (user1 == null) {
-
-            createDefaultAuthUser(AuthDto.builder().userId(userId + "")
-                    .userName(user.getUserName())
-                    .password(user.getPassword()).build());
-
             User userSaveResult = userRepository.save(user);
             LOGGER.info("[saveUser][Send authorization message to ts-auth-service....]");
 
@@ -75,28 +70,6 @@ public class UserServiceImpl implements UserService {
             UserServiceImpl.LOGGER.error("[saveUser][Save user error][User already exists][UserId: {}]",userDto.getUserId());
             return new Response<>(0, "USER HAS ALREADY EXISTS", null);
         }
-    }
-
-    private Response createDefaultAuthUser(AuthDto dto) {
-        LOGGER.info("[createDefaultAuthUser][CALL TO AUTH][AuthDto: {}]", dto.toString());
-        HttpHeaders headers = new HttpHeaders();
-        HttpEntity<AuthDto> entity = new HttpEntity<>(dto, null);
-        String auth_service_url = getServiceUrl("ts-auth-service");
-
-        List<ServiceInstance> auth_svcs = discoveryClient.getInstances("ts-auth-service");
-        if(auth_svcs.size() >0 ){
-            ServiceInstance auth_svc = auth_svcs.get(0);
-            LOGGER.info("[createDefaultAuthUser][CALL TO AUTH][auth_svc host: {}][auth_svc port: {}]", auth_svc.getHost(), auth_svc.getPort());
-        }else{
-            LOGGER.info("[createDefaultAuthUser][CALL TO AUTH][can not get auth url]");
-        }
-
-        ResponseEntity<Response<AuthDto>> res  = restTemplate.exchange(auth_service_url + "/api/v1/auth",
-                HttpMethod.POST,
-                entity,
-                new ParameterizedTypeReference<Response<AuthDto>>() {
-                });
-        return res.getBody();
     }
 
     @Override
@@ -135,9 +108,6 @@ public class UserServiceImpl implements UserService {
         LOGGER.info("[deleteUser][DELETE USER BY ID][userId: {}]", userId);
         User user = userRepository.findByUserId(userId);
         if (user != null) {
-            // first  only admin token can delete success
-            deleteUserAuth(userId, headers);
-            // second
             userRepository.deleteByUserId(userId);
             LOGGER.info("[deleteUser][DELETE SUCCESS][userId: {}]", userId);
             return new Response<>(1, "DELETE SUCCESS", null);
@@ -169,21 +139,4 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    public void deleteUserAuth(String userId, HttpHeaders headers) {
-        LOGGER.info("[deleteUserAuth][DELETE USER BY ID][userId: {}]", userId);
-
-        HttpHeaders newHeaders = new HttpHeaders();
-        String token = headers.getFirst(HttpHeaders.AUTHORIZATION);
-        newHeaders.set(HttpHeaders.AUTHORIZATION, token);
-
-        HttpEntity<Response> httpEntity = new HttpEntity<>(newHeaders);
-
-        String auth_service_url = getServiceUrl("ts-auth-service");
-        String AUTH_SERVICE_URI = auth_service_url + "/api/v1";
-        restTemplate.exchange(AUTH_SERVICE_URI + "/users/" + userId,
-                HttpMethod.DELETE,
-                httpEntity,
-                Response.class);
-        LOGGER.info("[deleteUserAuth][DELETE USER AUTH SUCCESS][userId: {}]", userId);
-    }
 }
