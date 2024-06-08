@@ -24,7 +24,6 @@ import java.util.Date;
 @EnableAsync
 @IntegrationComponentScan
 @EnableSwagger2
-@EnableDiscoveryClient
 public class ConsignPriceApplication {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ConsignPriceApplication.class);

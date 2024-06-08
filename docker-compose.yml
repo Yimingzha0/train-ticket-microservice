@@ -241,23 +241,84 @@ services:
 #        - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
 #      depends_on:
 #        - ts-discovery-service
+#
+#  ts-user-service:
+#      image: ${NAMESPACE}/ts-user-service:${TAG}
+#      restart: always
+#      ports:
+#        - 12342:12342
+#      networks:
+#        - my-network
+#      environment:
+#        - USER_MYSQL_HOST=ts-price-mysql
+#        - USER_MYSQL_PORT=3306
+#        - USER_MYSQL_DATABASE=ts
+#        - USER_MYSQL_USER=root
+#        - USER_MYSQL_PASSWORD=zhaoyiming.18
+#        - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
+#      depends_on:
+#        - ts-discovery-service
+#
+#  ts-admin-route-service:
+#      image: ${NAMESPACE}/ts-admin-route-service:${TAG}
+#      restart: always
+#      ports:
+#        - 16113:16113
+#      networks:
+#        - my-network
+#      environment:
+#        - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
+#      depends_on:
+#        - ts-discovery-service
+#
+#  ts-admin-travel-service:
+#      image: ${NAMESPACE}/ts-admin-travel-service:${TAG}
+#      restart: always
+#      ports:
+#        - 16114:16114
+#      networks:
+#        - my-network
+#      environment:
+#        - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
+#      depends_on:
+#        - ts-discovery-service
+#
+#  ts-consign-service:
+#      image: ${NAMESPACE}/ts-consign-service:${TAG}
+#      restart: always
+#      ports:
+#        - 16111:16111
+#      networks:
+#        - my-network
+#      environment:
+#        - CONSIGN_MYSQL_HOST=ts-price-mysql
+#        - CONSIGN_MYSQL_PORT=3306
+#        - CONSIGN_MYSQL_DATABASE=ts
+#        - CONSIGN_MYSQL_USER=root
+#        - CONSIGN_MYSQL_PASSWORD=zhaoyiming.18
+#        - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
+#      depends_on:
+#        - ts-price-mysql
+#        - ts-discovery-service
+#
+#  ts-consign-price-service:
+#      image: ${NAMESPACE}/ts-consign-price-service:${TAG}
+#      restart: always
+#      ports:
+#        - 16110:16110
+#      networks:
+#        - my-network
+#      environment:
+#        - CONSIGN_PRICE_MYSQL_HOST=ts-price-mysql
+#        - CONSIGN_PRICE_MYSQL_PORT=3306
+#        - CONSIGN_PRICE_MYSQL_DATABASE=ts
+#        - CONSIGN_PRICE_MYSQL_USER=root
+#        - CONSIGN_PRICE_MYSQL_PASSWORD=zhaoyiming.18
+#        - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
+#      depends_on:
+#        - ts-price-mysql
+#        - ts-discovery-service
 
-  ts-user-service:
-      image: ${NAMESPACE}/ts-user-service:${TAG}
-      restart: always
-      ports:
-        - 12342:12342
-      networks:
-        - my-network
-      environment:
-        - USER_MYSQL_HOST=ts-price-mysql
-        - USER_MYSQL_PORT=3306
-        - USER_MYSQL_DATABASE=ts
-        - USER_MYSQL_USER=root
-        - USER_MYSQL_PASSWORD=zhaoyiming.18
-        - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
-      depends_on:
-        - ts-discovery-service
 
 networks:
   my-network:

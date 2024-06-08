@@ -1,14 +1,10 @@
 spring:
-  cloud:
-    nacos:
-      discovery:
-        server-addr: ${NACOS_ADDRS:nacos-0.nacos-headless.default.svc.cluster.local,nacos-1.nacos-headless.default.svc.cluster.local,nacos-2.nacos-headless.default.svc.cluster.local}
   application:
     name: ts-consign-service
   datasource:
-    url: jdbc:mysql://${CONSIGN_MYSQL_HOST:ts-consign-mysql}:${CONSIGN_MYSQL_PORT:3306}/${CONSIGN_MYSQL_DATABASE:ts-consign-mysql}?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://${CONSIGN_MYSQL_HOST:ts-consign-mysql}:${CONSIGN_MYSQL_PORT:3306}/${CONSIGN_MYSQL_DATABASE:ts}?useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
     username: ${CONSIGN_MYSQL_USER:root}
-    password: ${CONSIGN_MYSQL_PASSWORD:root}
+    password: ${CONSIGN_MYSQL_PASSWORD:zhaoyiming.18}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
@@ -18,6 +14,11 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE:http://127.0.0.1:8761/eureka/}
+      preferIpAddress: true
 
 # HTTP Server
 server:
