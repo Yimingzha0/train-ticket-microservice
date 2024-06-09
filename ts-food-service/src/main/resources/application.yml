@@ -5,9 +5,9 @@ spring:
   application:
     name: ts-food-service
   datasource:
-    url: jdbc:mysql://${FOOD_MYSQL_HOST:ts-food-mysql}:${FOOD_MYSQL_PORT:3306}/${FOOD_MYSQL_DATABASE:ts-food-mysql}?useSSL=false
+    url: jdbc:mysql://${FOOD_MYSQL_HOST:ts-food-mysql}:${FOOD_MYSQL_PORT:3306}/${FOOD_MYSQL_DATABASE:ts-food-mysql}?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
     username: ${FOOD_MYSQL_USER:root}
-    password: ${FOOD_MYSQL_PASSWORD:root}
+    password: ${FOOD_MYSQL_PASSWORD:zhaoyiming.18}
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
@@ -16,7 +16,7 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
   rabbitmq:
-    host: ${rabbitmq_host:localhost}
+    host: ${RABBITMQ_HOST:ts-rabbitmq}
     port: 5672
 swagger:
   controllerPackage: foodsearch.controller
@@ -32,3 +32,9 @@ train-food-service:
 
 station-food-service:
   url: http://${STATION_FOOD_SERVICE_HOST:ts-station-food-service}:${STATION_FOOD_SERVICE_PORT:18855}
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE:http://127.0.0.1:8761/eureka/}
+      preferIpAddress: true

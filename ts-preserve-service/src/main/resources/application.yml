@@ -12,15 +12,17 @@ server:
   port: 14568  # HTTP (Tomcat) port
 
 spring:
-  cloud:
-    nacos:
-      discovery:
-        server-addr: ${NACOS_ADDRS:nacos-0.nacos-headless.default.svc.cluster.local,nacos-1.nacos-headless.default.svc.cluster.local,nacos-2.nacos-headless.default.svc.cluster.local}
   application:
     name: ts-preserve-service
   rabbitmq:
-    host: ${rabbitmq_host:localhost}
+    host: ${RABBITMQ_HOST:localhost}
     port: 5672
 
 swagger:
   controllerPackage: preserve.controller
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE:http://127.0.0.1:8761/eureka/}
+      preferIpAddress: true
