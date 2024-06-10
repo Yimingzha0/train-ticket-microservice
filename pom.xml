@@ -17,10 +17,14 @@
     <modules>
         <module>ts-discovery-service</module>
         <module>ts-common</module>
-        <module>ts-preserve-other-service</module>
+        <module>ts-security-service</module>
+        <module>ts-travel-plan-service</module>
+        <module>ts-rebook-service</module>
+        <module>ts-route-plan-service</module>
     </modules>
        <!--
        <module>ts-preserve-service</module>
+       <module>ts-preserve-other-service</module>
        <module>ts-config-service</module>
        <module>ts-station-food-service</module>
        <module>ts-food-delivery-service</module>
@@ -56,10 +60,6 @@
         <module>ts-inside-payment-service</module>
         <module>ts-payment-service</module>
 
-        <module>ts-security-service</module>
-        <module>ts-travel-plan-service</module>
-        <module>ts-rebook-service</module>
-        <module>ts-route-plan-service</module>
 
         <module>ts-delivery-service</module>
     </modules>-->

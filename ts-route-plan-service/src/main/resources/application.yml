@@ -1,8 +1,4 @@
 spring:
-  cloud:
-    nacos:
-      discovery:
-        server-addr: ${NACOS_ADDRS:nacos-0.nacos-headless.default.svc.cluster.local,nacos-1.nacos-headless.default.svc.cluster.local,nacos-2.nacos-headless.default.svc.cluster.local}
   application:
     name: ts-route-plan-service
 
@@ -10,6 +6,11 @@ spring:
 server:
   port: 14578 # HTTP (Tomcat) port
 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE:http://127.0.0.1:8761/eureka/}
+      preferIpAddress: true
 
 swagger:
   controllerPackage: plan.controller

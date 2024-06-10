@@ -30,27 +30,89 @@ services:
     networks:
       - my-network
 
-  ts-food-service:
-    image: ${NAMESPACE}/ts-food-service:${TAG}
+  ts-security-service:
+    image: ${NAMESPACE}/ts-security-service:${TAG}
     restart: always
-    container_name: ts-food-service
-    hostname: ts-food-service
+    container_name: ts-security-service
+    hostname: ts-security-service
     ports:
-      - 18856:18856
+      - 11188:11188
     networks:
       - my-network
     environment:
-      - FOOD_MYSQL_HOST=ts-price-mysql
-      - FOOD_MYSQL_PORT=3306
-      - FOOD_MYSQL_DATABASE=ts
-      - FOOD_MYSQL_USER=root
-      - FOOD_MYSQL_PASSWORD=zhaoyiming.18
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
+      - SECURITY_MYSQL_HOST=ts-price-mysql
+      - SECURITY_MYSQL_PORT=3306
+      - SECURITY_MYSQL_DATABASE=ts
+      - SECURITY_MYSQL_USER=root
+      - SECURITY_MYSQL_PASSWORD=zhaoyiming.18
+
+  ts-travel-plan-service:
+    image: ${NAMESPACE}/ts-travel-plan-service:${TAG}
+    restart: always
+    container_name: ts-travel-plan-service
+    hostname: ts-travel-plan-service
+    ports:
+      - 14322:14322
+    networks:
+      - my-network
+    environment:
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
       - RABBITMQ_HOST=rabbitmq
     depends_on:
       - ts-discovery-service
-      - ts-price-mysql
-      - rabbitmq
+
+  ts-route-plan-service:
+    image: ${NAMESPACE}/ts-route-plan-service:${TAG}
+    restart: always
+    container_name: ts-route-plan-service
+    hostname: ts-route-plan-service
+    ports:
+      - 14578:14578
+    networks:
+      - my-network
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
+      - RABBITMQ_HOST=rabbitmq
+    depends_on:
+      - ts-discovery-service
+
+  ts-rebook-service:
+    image: ${NAMESPACE}/ts-rebook-service:${TAG}
+    restart: always
+    container_name: ts-rebook-service
+    hostname: ts-rebook-service
+    ports:
+      - 18886:18886
+    networks:
+      - my-network
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
+    depends_on:
+      - ts-discovery-service
+
+
+#  ts-food-service:
+#    image: ${NAMESPACE}/ts-food-service:${TAG}
+#    restart: always
+#    container_name: ts-food-service
+#    hostname: ts-food-service
+#    ports:
+#      - 18856:18856
+#    networks:
+#      - my-network
+#    environment:
+#      - FOOD_MYSQL_HOST=ts-price-mysql
+#      - FOOD_MYSQL_PORT=3306
+#      - FOOD_MYSQL_DATABASE=ts
+#      - FOOD_MYSQL_USER=root
+#      - FOOD_MYSQL_PASSWORD=zhaoyiming.18
+#      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
+#      - RABBITMQ_HOST=rabbitmq
+#    depends_on:
+#      - ts-discovery-service
+#      - ts-price-mysql
+#      - rabbitmq
 #  ts-config-service:
 #    image: ${NAMESPACE}/ts-config-service:${TAG}
 #    restart: always
