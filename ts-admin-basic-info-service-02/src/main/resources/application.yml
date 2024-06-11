@@ -1,0 +1,15 @@
+server:
+  port: 18768
+
+spring:
+  application:
+    name: ts-admin-basic-info-service-02
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE:http://127.0.0.1:8761/eureka/}
+      preferIpAddress: true
+
+swagger:
+  controllerPackage: adminbasic.microservice

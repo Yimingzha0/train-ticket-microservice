@@ -1,0 +1,54 @@
+# HTTP Server
+server:
+  port: 12032  # HTTP (Tomcat) port
+
+spring:
+  application:
+    name: ts-order-other-service-02
+  datasource:
+#    url: jdbc:mysql://localhost:3306/ts-order-other-mysql?useSSL=false
+    url: jdbc:mysql://${ORDER_OTHER_MYSQL_HOST:ts-price-mysql}:${ORDER_OTHER_MYSQL_PORT:3306}/${ORDER_OTHER_MYSQL_DATABASE:ts}?allowPublicKeyRetrieval=true&useSSL=false
+    username: ${ORDER_OTHER_MYSQL_USER:root}
+    password: ${ORDER_OTHER_MYSQL_PASSWORD:zhaoyiming.18}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+#    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+
+#  rabbitmq:
+#    host: rabbitmq
+#    listener:
+#      retry:
+#        enabled: false
+#        max-attempts: 1
+#    template:
+#      retry:
+#        enabled: false
+#        max-attempts: 1
+#  cloud:
+#    stream:
+#      bindings:
+#        output:
+#          # group: ts-return-cancel
+#          destination: ts-order-other-exchange
+#          contentType: application/json
+#          binder: rabbit
+#        input:
+#          group: ts-order-other-service
+#          destination: ts-order-other-exchange
+#          contentType: application/json
+#          binder: rabbit
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE:http://127.0.0.1:8761/eureka/}
+      preferIpAddress: true
+
+
+swagger:
+  controllerPackage: other.controller
