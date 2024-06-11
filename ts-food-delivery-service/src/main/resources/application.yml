@@ -8,7 +8,7 @@ spring:
 #    url: jdbc:mysql://localhost:30001/ts-food-delivery-mysql?useSSL=false
     url: jdbc:mysql://${FOOD_DELIVERY_MYSQL_HOST:ts-food-delivery-mysql}:${FOOD_DELIVERY_MYSQL_PORT:3306}/${FOOD_DELIVERY_MYSQL_DATABASE:ts}?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
     username: ${FOOD_DELIVERY_MYSQL_USER:root}
-    password: ${FOOD_DELIVERY_MYSQL_PASSWORD:zhaoyiming.18}
+    password: ${FOOD_DELIVERY_MYSQL_PASSWORD:Abc123%}
     driver-class-name: com.mysql.jdbc.Driver
   jpa:
     hibernate:

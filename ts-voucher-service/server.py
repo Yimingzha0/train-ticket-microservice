@@ -133,7 +133,7 @@ def initMysqlConfig():
     host = "ts-voucher-mysql"
     port = 3306
     user = "root"
-    password = "zhaoyiming.18"
+    password = "Abc123%"
     db = "ts-voucher-mysql"
     if(os.getenv("VOUCHER_MYSQL_HOST") is not None):
         host = os.getenv("VOUCHER_MYSQL_HOST")

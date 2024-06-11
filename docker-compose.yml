@@ -13,7 +13,7 @@ services:
     image: mysql:8.0
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: zhaoyiming.18
+      MYSQL_ROOT_PASSWORD: Abc123%
       MYSQL_DATABASE: ts
     ports:
       - 3306:3306
@@ -45,7 +45,7 @@ services:
 #      - PAYMENT_MYSQL_PORT=3306
 #      - PAYMENT_MYSQL_DATABASE=ts
 #      - PAYMENT_MYSQL_USER=root
-#      - PAYMENT_MYSQL_PASSWORD=zhaoyiming.18
+#      - PAYMENT_MYSQL_PASSWORD=Abc123%
 #    depends_on:
 #      - ts-discovery-service
 #      - ts-price-mysql
@@ -65,7 +65,7 @@ services:
 #      - NOTIFICATION_MYSQL_PORT=3306
 #      - NOTIFICATION_MYSQL_DATABASE=ts
 #      - NOTIFICATION_MYSQL_USER=root
-#      - NOTIFICATION_MYSQL_PASSWORD=zhaoyiming.18
+#      - NOTIFICATION_MYSQL_PASSWORD=Abc123%
 #      - RABBITMQ_HOST=rabbitmq
 #    depends_on:
 #      - ts-discovery-service
@@ -87,7 +87,7 @@ services:
 #      - INSIDE_PAYMENT_MYSQL_PORT=3306
 #      - INSIDE_PAYMENT_MYSQL_DATABASE=ts
 #      - INSIDE_PAYMENT_MYSQL_USER=root
-#      - INSIDE_PAYMENT_MYSQL_PASSWORD=zhaoyiming.18
+#      - INSIDE_PAYMENT_MYSQL_PASSWORD=Abc123%
 #    depends_on:
 #      - ts-discovery-service
 #      - ts-price-mysql
@@ -121,7 +121,7 @@ services:
 #      - SECURITY_MYSQL_PORT=3306
 #      - SECURITY_MYSQL_DATABASE=ts
 #      - SECURITY_MYSQL_USER=root
-#      - SECURITY_MYSQL_PASSWORD=zhaoyiming.18
+#      - SECURITY_MYSQL_PASSWORD=Abc123%
 #
 #  ts-travel-plan-service:
 #    image: ${NAMESPACE}/ts-travel-plan-service:${TAG}
@@ -181,7 +181,7 @@ services:
 #      - FOOD_MYSQL_PORT=3306
 #      - FOOD_MYSQL_DATABASE=ts
 #      - FOOD_MYSQL_USER=root
-#      - FOOD_MYSQL_PASSWORD=zhaoyiming.18
+#      - FOOD_MYSQL_PASSWORD=Abc123%
 #      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
 #      - RABBITMQ_HOST=rabbitmq
 #    depends_on:
@@ -203,7 +203,7 @@ services:
 #      - CONFIG_MYSQL_PORT=3306
 #      - CONFIG_MYSQL_DATABASE=ts
 #      - CONFIG_MYSQL_USER=root
-#      - CONFIG_MYSQL_PASSWORD=zhaoyiming.18
+#      - CONFIG_MYSQL_PASSWORD=Abc123%
 #
 #  ts-preserve-other-service:
 #    image: ${NAMESPACE}/ts-preserve-other-service:${TAG}
@@ -235,7 +235,7 @@ services:
 #      - WAIT_ORDER_MYSQL_PORT=3306
 #      - WAIT_ORDER_MYSQL_DATABASE=ts
 #      - WAIT_ORDER_MYSQL_USER=root
-#      - WAIT_ORDER_MYSQL_PASSWORD=zhaoyiming.18
+#      - WAIT_ORDER_MYSQL_PASSWORD=Abc123%
 #      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
 #    depends_on:
 #      - ts-discovery-service
@@ -255,7 +255,7 @@ services:
 #      - STATION_FOOD_MYSQL_PORT=3306
 #      - STATION_FOOD_MYSQL_DATABASE=ts
 #      - STATION_FOOD_MYSQL_USER=root
-#      - STATION_FOOD_MYSQL_PASSWORD=zhaoyiming.18
+#      - STATION_FOOD_MYSQL_PASSWORD=Abc123%
 #      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
 #    depends_on:
 #      - ts-discovery-service
@@ -275,7 +275,7 @@ services:
 #      - PRESERVE_MYSQL_PORT=3306
 #      - PRESERVE_MYSQL_DATABASE=ts
 #      - PRESERVE_MYSQL_USER=root
-#      - PRESERVE_MYSQL_PASSWORD=zhaoyiming.18
+#      - PRESERVE_MYSQL_PASSWORD=Abc123%
 #      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
 #      - RABBITMQ_HOST=rabbitmq
 #    depends_on:
@@ -298,7 +298,7 @@ services:
 #      - FOOD_DELIVERY_MYSQL_PORT=3306
 #      - FOOD_DELIVERY_MYSQL_DATABASE=ts
 #      - FOOD_DELIVERY_MYSQL_USER=root
-#      - FOOD_DELIVERY_MYSQL_PASSWORD=zhaoyiming.18
+#      - FOOD_DELIVERY_MYSQL_PASSWORD=Abc123%
 #      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
 #      - RABBITMQ_HOST=rabbitmq
 #    depends_on:
@@ -335,7 +335,7 @@ services:
 #      - TRAVEL_MYSQL_PORT=3306
 #      - TRAVEL_MYSQL_DATABASE=ts
 #      - TRAVEL_MYSQL_USER=root
-#      - TRAVEL_MYSQL_PASSWORD=zhaoyiming.18
+#      - TRAVEL_MYSQL_PASSWORD=Abc123%
 #      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
 #    depends_on:
 #      - ts-price-mysql
@@ -355,7 +355,7 @@ services:
 #      - TRAVEL2_MYSQL_PORT=3306
 #      - TRAVEL2_MYSQL_DATABASE=ts
 #      - TRAVEL2_MYSQL_USER=root
-#      - TRAVEL2_MYSQL_PASSWORD=zhaoyiming.18
+#      - TRAVEL2_MYSQL_PASSWORD=Abc123%
 #      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
 #    depends_on:
 #      - ts-price-mysql
@@ -375,7 +375,7 @@ services:
       - ORDER_MYSQL_PORT=3306
       - ORDER_MYSQL_DATABASE=ts
       - ORDER_MYSQL_USER=root
-      - ORDER_MYSQL_PASSWORD=zhaoyiming.18
+      - ORDER_MYSQL_PASSWORD=Abc123%
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
     depends_on:
       - ts-price-mysql
@@ -393,7 +393,7 @@ services:
       - ORDER_OTHER_MYSQL_PORT=3306
       - ORDER_OTHER_MYSQL_DATABASE=ts
       - ORDER_OTHER_MYSQL_USER=root
-      - ORDER_OTHER_MYSQL_PASSWORD=zhaoyiming.18
+      - ORDER_OTHER_MYSQL_PASSWORD=Abc123%
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
     depends_on:
       - ts-price-mysql
@@ -411,7 +411,7 @@ services:
       - OTHER_MYSQL_PORT=3306
       - OTHER_MYSQL_DATABASE=ts
       - OTHER_MYSQL_USER=root
-      - OTHER_MYSQL_PASSWORD=zhaoyiming.18
+      - OTHER_MYSQL_PASSWORD=Abc123%
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
     depends_on:
       - ts-price-mysql
@@ -429,7 +429,7 @@ services:
       - ORDER_OTHER_MYSQL_PORT=3306
       - ORDER_OTHER_MYSQL_DATABASE=ts
       - ORDER_OTHER_MYSQL_USER=root
-      - ORDER_OTHER_MYSQL_PASSWORD=zhaoyiming.18
+      - ORDER_OTHER_MYSQL_PASSWORD=Abc123%
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
     depends_on:
       - ts-price-mysql
@@ -447,7 +447,7 @@ services:
 #      - TRAIN_MYSQL_PORT=3306
 #      - TRAIN_MYSQL_DATABASE=ts
 #      - TRAIN_MYSQL_USER=root
-#      - TRAIN_MYSQL_PASSWORD=zhaoyiming.18
+#      - TRAIN_MYSQL_PASSWORD=Abc123%
 #      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
 #    depends_on:
 #      - ts-price-mysql
@@ -465,7 +465,7 @@ services:
 #      - ROUTE_MYSQL_PORT=3306
 #      - ROUTE_MYSQL_DATABASE=ts
 #      - ROUTE_MYSQL_USER=root
-#      - ROUTE_MYSQL_PASSWORD=zhaoyiming.18
+#      - ROUTE_MYSQL_PASSWORD=Abc123%
 #      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
 #    depends_on:
 #      - ts-price-mysql
@@ -506,7 +506,7 @@ services:
 #      - STATION_MYSQL_PORT=3306
 #      - STATION_MYSQL_DATABASE=ts
 #      - STATION_MYSQL_USER=root
-#      - STATION_MYSQL_PASSWORD=zhaoyiming.18
+#      - STATION_MYSQL_PASSWORD=Abc123%
 #      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
 #    depends_on:
 #      - ts-price-mysql
@@ -524,7 +524,7 @@ services:
 #      - CONTACT_MYSQL_PORT=3306
 #      - CONTACT_MYSQL_DATABASE=ts
 #      - CONTACT_MYSQL_USER=root
-#      - CONTACT_MYSQL_PASSWORD=zhaoyiming.18
+#      - CONTACT_MYSQL_PASSWORD=Abc123%
 #      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
 #    depends_on:
 #      - ts-price-mysql
@@ -578,7 +578,7 @@ services:
 #      - PRICE_MYSQL_PORT=3306
 #      - PRICE_MYSQL_DATABASE=ts
 #      - PRICE_MYSQL_USER=root
-#      - PRICE_MYSQL_PASSWORD=zhaoyiming.18
+#      - PRICE_MYSQL_PASSWORD=Abc123%
 #      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
 #    depends_on:
 #      - ts-price-mysql
@@ -597,7 +597,7 @@ services:
 #      - TRAIN_FOOD_MYSQL_PORT=3306
 #      - TRAIN_FOOD_MYSQL_DATABASE=ts
 #      - TRAIN_FOOD_MYSQL_USER=root
-#      - TRAIN_FOOD_MYSQL_PASSWORD=zhaoyiming.18
+#      - TRAIN_FOOD_MYSQL_PASSWORD=Abc123%
 #      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
 #    depends_on:
 #      - ts-price-mysql
@@ -639,7 +639,7 @@ services:
 #        - ASSURANCE_MYSQL_PORT=3306
 #        - ASSURANCE_MYSQL_DATABASE=ts
 #        - ASSURANCE_MYQL_USER=root
-#        - ASSURANCE_MYSQL_PASSWORD=zhaoyiming.18
+#        - ASSURANCE_MYSQL_PASSWORD=Abc123%
 #        - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
 #      depends_on:
 #        - ts-discovery-service
@@ -656,7 +656,7 @@ services:
 #        - USER_MYSQL_PORT=3306
 #        - USER_MYSQL_DATABASE=ts
 #        - USER_MYSQL_USER=root
-#        - USER_MYSQL_PASSWORD=zhaoyiming.18
+#        - USER_MYSQL_PASSWORD=Abc123%
 #        - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
 #      depends_on:
 #        - ts-discovery-service
@@ -697,7 +697,7 @@ services:
 #        - CONSIGN_MYSQL_PORT=3306
 #        - CONSIGN_MYSQL_DATABASE=ts
 #        - CONSIGN_MYSQL_USER=root
-#        - CONSIGN_MYSQL_PASSWORD=zhaoyiming.18
+#        - CONSIGN_MYSQL_PASSWORD=Abc123%
 #        - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
 #      depends_on:
 #        - ts-price-mysql
@@ -715,7 +715,7 @@ services:
 #        - CONSIGN_PRICE_MYSQL_PORT=3306
 #        - CONSIGN_PRICE_MYSQL_DATABASE=ts
 #        - CONSIGN_PRICE_MYSQL_USER=root
-#        - CONSIGN_PRICE_MYSQL_PASSWORD=zhaoyiming.18
+#        - CONSIGN_PRICE_MYSQL_PASSWORD=Abc123%
 #        - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
 #      depends_on:
 #        - ts-price-mysql
