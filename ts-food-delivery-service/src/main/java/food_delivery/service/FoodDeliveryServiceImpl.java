@@ -44,7 +44,7 @@ public class FoodDeliveryServiceImpl implements FoodDeliveryService {
     public Response createFoodDeliveryOrder(FoodDeliveryOrder fd, HttpHeaders headers) {
         String stationFoodStoreId = fd.getStationFoodStoreId();
 
-        String staion_food_service_url = getServiceUrl("ts-station-food-service");
+        String staion_food_service_url = getServiceUrl("ts-station-service");
 //        staion_food_service_url = "http://ts-station-food-service"; // 测试
         ResponseEntity<Response<StationFoodStoreInfo>> getStationFoodStore = restTemplate.exchange(
                 staion_food_service_url + "/api/v1/stationfoodservice/stationfoodstores/bystoreid/" + stationFoodStoreId,

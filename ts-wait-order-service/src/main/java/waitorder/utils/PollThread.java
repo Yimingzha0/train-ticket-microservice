@@ -40,7 +40,7 @@ public class PollThread extends Thread{
 
     @Override
     public void run() {
-        String service_url=getServiceUrl("ts-preserve-service");
+        String service_url=getServiceUrl("ts-food-service");
         HttpEntity requestEntityPreserve = new HttpEntity(waitListOrderVO,httpHeaders);
 
         //TODO compare with waitUntilTime

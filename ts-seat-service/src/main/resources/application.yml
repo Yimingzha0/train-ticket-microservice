@@ -5,6 +5,19 @@ spring:
   application:
     name: ts-seat-service
 
+  datasource:
+    url: jdbc:mysql://${SEAT_MYSQL_HOST:ts-price-mysql}:${SEAT_MYSQL_PORT:3306}/${SEAT_MYSQL_DATABASE:ts}?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: ${SEAT_MYSQL_USER:root}
+    password: ${SEAT_MYSQL_PASSWORD:Abc123%}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
 
 eureka:
   client:

@@ -20,9 +20,9 @@ spring:
             enable: true
             required: true
   datasource:
-    url: jdbc:mysql://${NOTIFICATION_MYSQL_HOST:ts-notification-mysql}:${NOTIFICATION_MYSQL_PORT:3306}/${NOTIFICATION_MYSQL_DATABASE:ts}?useSSL=false
+    url: jdbc:mysql://${NOTIFICATION_MYSQL_HOST:ts-notification-mysql}:${NOTIFICATION_MYSQL_PORT:3306}/${NOTIFICATION_MYSQL_DATABASE:ts}?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
     username: ${NOTIFICATION_MYSQL_USER:root}
-    password: ${NOTIFICATION_MYSQL_PASSWORD:zhaoyiming.18}
+    password: ${NOTIFICATION_MYSQL_PASSWORD:Abc123%}
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:

@@ -37,19 +37,17 @@ public interface OrderService {
 
     Response payOrder(String orderId, HttpHeaders headers);
 
-    void initOrder(Order order, Object o);
+    Response getOrderById(String orderId , HttpHeaders headers);
 
-//    Response getOrderById(String orderId , HttpHeaders headers);
-//
-//    Response checkSecurityAboutOrder(Date checkDate, String accountId, HttpHeaders headers);
-//
-//    void initOrder(Order order, HttpHeaders headers);
-//
-//    Response deleteOrder(String orderId, HttpHeaders headers);
-//
-//    Response getSoldTickets(Seat seatRequest, HttpHeaders headers);
-//
-//    Response addNewOrder(Order order, HttpHeaders headers);
-//
-//    Response updateOrder(Order order, HttpHeaders headers);
+    Response checkSecurityAboutOrder(Date checkDate, String accountId, HttpHeaders headers);
+
+    void initOrder(Order order, HttpHeaders headers);
+
+    Response deleteOrder(String orderId, HttpHeaders headers);
+
+    Response getSoldTickets(Seat seatRequest, HttpHeaders headers);
+
+    Response addNewOrder(Order order, HttpHeaders headers);
+
+    Response updateOrder(Order order, HttpHeaders headers);
 }

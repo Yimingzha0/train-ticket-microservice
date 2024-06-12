@@ -106,7 +106,7 @@ public class InsidePaymentServiceImpl implements InsidePaymentService {
                 /****这里调用第三方支付***/
 
                 HttpEntity requestEntityOutsidePaySuccess = new HttpEntity(outsidePaymentInfo, headers);
-                String payment_service_url = getServiceUrl("ts-payment-service");
+                String payment_service_url = getServiceUrl("ts-notification-service");
                 ResponseEntity<Response> reOutsidePaySuccess = restTemplate.exchange(
                         payment_service_url + "/api/v1/paymentservice/payment",
                         HttpMethod.POST,
@@ -293,7 +293,7 @@ public class InsidePaymentServiceImpl implements InsidePaymentService {
             outsidePaymentInfo.setPrice(info.getPrice());
 
             HttpEntity requestEntityOutsidePaySuccess = new HttpEntity(outsidePaymentInfo, headers);
-            String payment_service_url = getServiceUrl("ts-payment-service");
+            String payment_service_url = getServiceUrl("ts-notification-service");
             ResponseEntity<Response> reOutsidePaySuccess = restTemplate.exchange(
                     payment_service_url + "/api/v1/paymentservice/payment",
                     HttpMethod.POST,

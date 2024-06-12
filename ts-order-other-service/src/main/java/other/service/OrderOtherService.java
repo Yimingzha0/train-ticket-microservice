@@ -39,7 +39,17 @@ public interface OrderOtherService {
 
     Response getAllOrders(HttpHeaders headers);
 
-   Response alterOrder(OrderAlterInfo oai, HttpHeaders headers);
+    Response getSoldTickets(Seat seatRequest, HttpHeaders headers);
+
+    Response queryOrders(QueryInfo qi, String accountId, HttpHeaders headers);
+
+    Response queryOrdersForRefresh(QueryInfo qi, String accountId, HttpHeaders headers);
+
+    Response alterOrder(OrderAlterInfo oai, HttpHeaders headers);
+
+    Response queryAlreadySoldOrders(Date travelDate, String trainNumber, HttpHeaders headers);
+
+    Response checkSecurityAboutOrder(Date checkDate, String accountId, HttpHeaders headers);
 
     void initOrder(Order order, HttpHeaders headers);
 }
