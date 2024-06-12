@@ -60,7 +60,7 @@ public class ConsignServiceImpl implements ConsignService {
 
         //get the price
         HttpEntity requestEntity = new HttpEntity(null, headers);
-        String consign_price_service_url = getServiceUrl("ts-config-service");
+        String consign_price_service_url = getServiceUrl("ts-contacts-service");
         ResponseEntity<Response<Double>> re = restTemplate.exchange(
                 consign_price_service_url + "/api/v1/consignpriceservice/consignprice/" + consignRequest.getWeight() + "/" + consignRequest.isWithin(),
                 HttpMethod.GET,
@@ -93,7 +93,7 @@ public class ConsignServiceImpl implements ConsignService {
         //Recalculate price
         if (originalRecord.getWeight() != consignRequest.getWeight()) {
             HttpEntity requestEntity = new HttpEntity<>(null, headers);
-            String consign_price_service_url = getServiceUrl("ts-config-service");
+            String consign_price_service_url = getServiceUrl("ts-contacts-service");
             ResponseEntity<Response<Double>> re = restTemplate.exchange(
                     consign_price_service_url + "/api/v1/consignpriceservice/consignprice/" + consignRequest.getWeight() + "/" + consignRequest.isWithin(),
                     HttpMethod.GET,

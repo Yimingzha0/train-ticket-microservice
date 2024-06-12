@@ -223,7 +223,7 @@ public class AdminBasicInfoServiceImpl implements AdminBasicInfoService {
     @Override
     public Response getAllConfigs(HttpHeaders headers) {
         HttpEntity requestEntity = new HttpEntity(headers);
-        String config_service_url = getServiceUrl("ts-config-service");
+        String config_service_url = getServiceUrl("ts-contacts-service");
         String configs = config_service_url + "/api/v1/configservice/configs";
         ResponseEntity<Response> re = restTemplate.exchange(
                 configs,
@@ -237,7 +237,7 @@ public class AdminBasicInfoServiceImpl implements AdminBasicInfoService {
     @Override
     public Response addConfig(Config c, HttpHeaders headers) {
         HttpEntity requestEntity = new HttpEntity(c, headers);
-        String config_service_url = getServiceUrl("ts-config-service");
+        String config_service_url = getServiceUrl("ts-contacts-service");
         String configs = config_service_url + "/api/v1/configservice/configs";
         ResponseEntity<Response> re = restTemplate.exchange(
                 configs,
@@ -250,7 +250,7 @@ public class AdminBasicInfoServiceImpl implements AdminBasicInfoService {
     @Override
     public Response deleteConfig(String name, HttpHeaders headers) {
         HttpEntity requestEntity = new HttpEntity(headers);
-        String config_service_url = getServiceUrl("ts-config-service");
+        String config_service_url = getServiceUrl("ts-contacts-service");
         ResponseEntity<Response> re = restTemplate.exchange(
                 config_service_url + "/api/v1/configservice/configs/" + name,
                 HttpMethod.DELETE,
@@ -262,7 +262,7 @@ public class AdminBasicInfoServiceImpl implements AdminBasicInfoService {
     @Override
     public Response modifyConfig(Config c, HttpHeaders headers) {
         HttpEntity requestEntity = new HttpEntity(c, headers);
-        String config_service_url = getServiceUrl("ts-config-service");
+        String config_service_url = getServiceUrl("ts-contacts-service");
         String configs = config_service_url + "/api/v1/configservice/configs";
         ResponseEntity<Response> re = restTemplate.exchange(
                 configs,
@@ -275,7 +275,7 @@ public class AdminBasicInfoServiceImpl implements AdminBasicInfoService {
     @Override
     public Response getAllPrices(HttpHeaders headers) {
         HttpEntity requestEntity = new HttpEntity(headers);
-        String price_service_url = getServiceUrl("ts-price-service");
+        String price_service_url = getServiceUrl("ts-wait-order-service");
         String prices = price_service_url + "/api/v1/priceservice/prices";
         ResponseEntity<Response> re = restTemplate.exchange(
                 prices,
@@ -288,7 +288,7 @@ public class AdminBasicInfoServiceImpl implements AdminBasicInfoService {
     @Override
     public Response addPrice(PriceInfo pi, HttpHeaders headers) {
         HttpEntity requestEntity = new HttpEntity(pi, headers);
-        String price_service_url = getServiceUrl("ts-price-service");
+        String price_service_url = getServiceUrl("ts-wait-order-service");
         String prices = price_service_url + "/api/v1/priceservice/prices";
         ResponseEntity<Response> re = restTemplate.exchange(
                 prices,
@@ -302,7 +302,7 @@ public class AdminBasicInfoServiceImpl implements AdminBasicInfoService {
     @Override
     public Response deletePrice(String pricesId, HttpHeaders headers) {
         HttpEntity requestEntity = new HttpEntity(headers);
-        String price_service_url = getServiceUrl("ts-price-service");
+        String price_service_url = getServiceUrl("ts-wait-order-service");
         String path = price_service_url + "/api/v1/priceservice/prices/" + pricesId;
         ResponseEntity<Response> re = restTemplate.exchange(
                 path,
@@ -316,7 +316,7 @@ public class AdminBasicInfoServiceImpl implements AdminBasicInfoService {
     @Override
     public Response modifyPrice(PriceInfo pi, HttpHeaders headers) {
         HttpEntity requestEntity = new HttpEntity(pi, headers);
-        String price_service_url = getServiceUrl("ts-price-service");
+        String price_service_url = getServiceUrl("ts-wait-order-service");
         String prices = price_service_url + "/api/v1/priceservice/prices";
         ResponseEntity<Response> re = restTemplate.exchange(
                 prices,

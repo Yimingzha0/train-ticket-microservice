@@ -123,7 +123,7 @@ public class PreserveServiceImpl implements PreserveService {
         query.setDepartureTime(StringUtils.Date2String(new Date()));
 
         HttpEntity requestEntity = new HttpEntity(query, headers);
-        String basic_service_url = getServiceUrl("ts-basic-service");
+        String basic_service_url = getServiceUrl("ts-assurance-service");
         ResponseEntity<Response<TravelResult>> re = restTemplate.exchange(
                 basic_service_url + "/api/v1/basicservice/basic/travel",
                 HttpMethod.POST,
@@ -272,7 +272,7 @@ public class PreserveServiceImpl implements PreserveService {
         seatRequest.setStations(stationList);
 
         HttpEntity requestEntityTicket = new HttpEntity(seatRequest, httpHeaders);
-        String seat_service_url = getServiceUrl("ts-seat-service");
+        String seat_service_url = getServiceUrl("ts-train-service");
         ResponseEntity<Response<Ticket>> reTicket = restTemplate.exchange(
                 seat_service_url + "/api/v1/seatservice/seats",
                 HttpMethod.POST,
@@ -344,7 +344,7 @@ public class PreserveServiceImpl implements PreserveService {
         PreserveServiceImpl.LOGGER.info("[checkSecurity][Preserve Other Service][Check Account Security]");
 
         HttpEntity requestCheckResult = new HttpEntity(httpHeaders);
-        String security_service_url = getServiceUrl("ts-seat-service");
+        String security_service_url = getServiceUrl("ts-train-service");
         ResponseEntity<Response> reCheckResult = restTemplate.exchange(
                 security_service_url + "/api/v1/securityservice/securityConfigs/" + accountId,
                 HttpMethod.GET,
@@ -390,7 +390,7 @@ public class PreserveServiceImpl implements PreserveService {
         PreserveServiceImpl.LOGGER.info("[createOrder][Preserve Service][create order]");
 
         HttpEntity requestEntityCreateOrderResult = new HttpEntity(coi, httpHeaders);
-        String order_service_url = getServiceUrl("ts-order-service");
+        String order_service_url = getServiceUrl("ts-notification-service");
         ResponseEntity<Response<Order>> reCreateOrderResult = restTemplate.exchange(
                 order_service_url + "/api/v1/orderservice/order",
                 HttpMethod.POST,

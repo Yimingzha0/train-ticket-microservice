@@ -63,7 +63,7 @@ public class AdminTravelServiceImpl implements AdminTravelService {
         }
 
         HttpEntity requestEntity2 = new HttpEntity(headers);
-        String travel2_service_url = getServiceUrl("ts-travel2-service");
+        String travel2_service_url = getServiceUrl("ts-station-service");
         ResponseEntity<Response<ArrayList<AdminTrip>>> re2 = restTemplate.exchange(
                 travel2_service_url + "/api/v1/travel2service/admin_trip",
                 HttpMethod.GET,
@@ -96,7 +96,7 @@ public class AdminTravelServiceImpl implements AdminTravelService {
         String requestUrl;
 
         String travel_service_url = getServiceUrl("ts-travel-service");
-        String travel2_service_url = getServiceUrl("ts-travel2-service");
+        String travel2_service_url = getServiceUrl("ts-station-service");
         String tripId = request.getTripId();
         if (tripId.charAt(0) == 'G' || tripId.charAt(0) == 'D'){
             requestUrl = travel_service_url + "/api/v1/travelservice/trips";
@@ -131,7 +131,7 @@ public class AdminTravelServiceImpl implements AdminTravelService {
         Response result;
         String requestUrl = "";
         String travel_service_url = getServiceUrl("ts-travel-service");
-        String travel2_service_url = getServiceUrl("ts-travel2-service");
+        String travel2_service_url = getServiceUrl("ts-station-service");
         String tripId = request.getTripId();
         if (tripId.charAt(0) == 'G' || tripId.charAt(0) == 'D'){
             requestUrl = travel_service_url + "/api/v1/travelservice/trips";
@@ -161,7 +161,7 @@ public class AdminTravelServiceImpl implements AdminTravelService {
         Response result;
         String requestUtl = "";
         String travel_service_url = getServiceUrl("ts-travel-service");
-        String travel2_service_url = getServiceUrl("ts-travel2-service");
+        String travel2_service_url = getServiceUrl("ts-station-service");
         if (tripId.charAt(0) == 'G' || tripId.charAt(0) == 'D') {
             requestUtl = travel_service_url + "/api/v1/travelservice/trips/" + tripId;
         } else {
@@ -270,7 +270,7 @@ public class AdminTravelServiceImpl implements AdminTravelService {
     private Route getRouteByRouteId(String routeId, HttpHeaders headers) {
         AdminTravelServiceImpl.LOGGER.info("[getRouteByRouteId][Get Route By Id][Route ID：{}]", routeId);
         HttpEntity requestEntity = new HttpEntity(null);
-        String route_service_url=getServiceUrl("ts-route-service");
+        String route_service_url=getServiceUrl("ts-travel-service");
         ResponseEntity<Response> re = restTemplate.exchange(
                 route_service_url + "/api/v1/routeservice/routes/" + routeId,
                 HttpMethod.GET,

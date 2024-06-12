@@ -124,7 +124,7 @@ public class PreserveOtherServiceImpl implements PreserveOtherService {
 
 
         HttpEntity requestEntity = new HttpEntity(query, httpHeaders);
-        String basic_service_url = getServiceUrl("ts-basic-service");
+        String basic_service_url = getServiceUrl("ts-assurance-service");
         ResponseEntity<Response<TravelResult>> re = restTemplate.exchange(
                 basic_service_url + "/api/v1/basicservice/basic/travel",
                 HttpMethod.POST,
@@ -269,7 +269,7 @@ public class PreserveOtherServiceImpl implements PreserveOtherService {
         seatRequest.setStations(stationList);
 
         HttpEntity requestEntityTicket = new HttpEntity(seatRequest, httpHeaders);
-        String seat_service_url = getServiceUrl("ts-seat-service");
+        String seat_service_url = getServiceUrl("ts-train-service");
         ResponseEntity<Response<Ticket>> reTicket = restTemplate.exchange(
                 seat_service_url + "/api/v1/seatservice/seats",
                 HttpMethod.POST,
@@ -344,7 +344,7 @@ public class PreserveOtherServiceImpl implements PreserveOtherService {
         PreserveOtherServiceImpl.LOGGER.info("[checkSecurity][Preserve Other Service][Check Account Security]");
 
         HttpEntity requestCheckResult = new HttpEntity(httpHeaders);
-        String security_service_url = getServiceUrl("ts-seat-service");
+        String security_service_url = getServiceUrl("ts-train-service");
         ResponseEntity<Response> reCheckResult = restTemplate.exchange(
                 security_service_url + "/api/v1/securityservice/securityConfigs/" + accountId,
                 HttpMethod.GET,
@@ -359,7 +359,7 @@ public class PreserveOtherServiceImpl implements PreserveOtherService {
         PreserveOtherServiceImpl.LOGGER.info("[getTripAllDetailInformation][Preserve Other Service][Get Trip All Detail Information]");
 
         HttpEntity requestGetTripAllDetailResult = new HttpEntity(gtdi, httpHeaders);
-        String travel2_service_url = getServiceUrl("ts-travel2-service");
+        String travel2_service_url = getServiceUrl("ts-station-service");
         ResponseEntity<Response<TripAllDetail>> reGetTripAllDetailResult = restTemplate.exchange(
                 travel2_service_url + "/api/v1/travel2service/trip_detail",
                 HttpMethod.POST,
@@ -389,7 +389,7 @@ public class PreserveOtherServiceImpl implements PreserveOtherService {
         PreserveOtherServiceImpl.LOGGER.info("[createOrder][Preserve Other Service][Get Contacts By Id]");
 
         HttpEntity requestEntityCreateOrderResult = new HttpEntity(coi, httpHeaders);
-        String order_other_service_url = getServiceUrl("ts-order-other-service");
+        String order_other_service_url = getServiceUrl("ts-inside-payment-service");
         ResponseEntity<Response<Order>> reCreateOrderResult = restTemplate.exchange(
                 order_other_service_url + "/api/v1/orderOtherService/orderOther",
                 HttpMethod.POST,

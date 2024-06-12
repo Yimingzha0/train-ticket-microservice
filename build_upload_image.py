@@ -1,7 +1,7 @@
 import os
 
 PREFIX = "yimingzha0"
-VERSION = "0.3.1"
+VERSION = "0.4.1"
 
 base_path = os.getcwd()
 build_paths = []

@@ -16,35 +16,23 @@
 
     <modules>
         <module>ts-common</module>
-        <module>ts-notification-service</module>
-        <module>ts-food-service</module>
+        <module>ts-admin-basic-info-service</module>
+        <module>ts-assurance-service</module>
     </modules>
        <!--
-<module>ts-discovery-service</module>
-    <module>ts-seat-service</module>
-    <module>ts-train-service</module>
+       <module>ts-notification-service</module>
+        <module>ts-food-service</module>
+        <module>ts-discovery-service</module>
+        <module>ts-train-service</module>
         <module>ts-station-service</module>
-        <module>ts-order-other-service</module>
-        <module>ts-order-service</module>
         <module>ts-admin-basic-info-service</module>
-
         <module>ts-inside-payment-service</module>
-        <module>ts-payment-service</module>
-        <module>ts-config-service</module>
-        <module>ts-food-delivery-service</module>
-
         <module>ts-wait-order-service</module>
-        <module>ts-assurance-service</module>
-        <module>ts-admin-route-service</module>
-        <module>ts-price-service</module>
-        <module>ts-station-service</module>
+
         <module>ts-contacts-service</module>
-
-        <module>ts-route-service</module>
-
-        <module>ts-basic-service</module>
         <module>ts-travel-service</module>
-        <module>ts-travel2-service</module>
+
+
 
         <module>ts-delivery-service</module>
     </modules>-->
