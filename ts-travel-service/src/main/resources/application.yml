@@ -25,6 +25,7 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE:ts-discovery-service:8761}/eureka/
+      preferIpAddress: true
 
 train-service:
   url: http://${TRAIN_SERVICE_HOST:ts-train-service}:${TRAIN_SERVICE_PORT:14567}

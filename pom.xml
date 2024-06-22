@@ -17,7 +17,8 @@
     <modules>
         <module>ts-common</module>
         <module>ts-notification-service</module>
-        <module>ts-food-service</module>
+        <module>ts-travel-service</module>
+        <module>ts-config-service</module>
     </modules>
        <!--
 <module>ts-discovery-service</module>
