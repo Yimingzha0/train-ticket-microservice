@@ -324,7 +324,7 @@ public class BasicServiceImpl implements BasicService {
     public Response queryForStationId(String stationName, HttpHeaders headers) {
         BasicServiceImpl.LOGGER.info("[queryForStationId][Query For Station Id][stationName: {}]", stationName);
         HttpEntity requestEntity = new HttpEntity(null);
-        String station_service_url=getServiceUrl("ts-station-service");
+        String station_service_url=getServiceUrl("ts-station-service:12345");
         ResponseEntity<Response> re = restTemplate.exchange(
                 station_service_url + "/api/v1/stationservice/stations/id/" + stationName,
                 HttpMethod.GET,

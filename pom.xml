@@ -18,6 +18,15 @@
         <module>ts-common</module>
         <module>ts-admin-basic-info-service</module>
         <module>ts-assurance-service</module>
+        <module>ts-travel-service</module>
+        <module>ts-train-service</module>
+        <module>ts-notification-service</module>
+        <module>ts-inside-payment-service</module>
+        <module>ts-wait-order-service</module>
+        <module>ts-food-service</module>
+        <module>ts-discovery-service</module>
+        <module>ts-station-service</module>
+        <module>ts-contacts-service</module>
     </modules>
        <!--
        <module>ts-notification-service</module>

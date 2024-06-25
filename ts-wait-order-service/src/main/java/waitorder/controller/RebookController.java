@@ -15,7 +15,7 @@ import static org.springframework.http.ResponseEntity.ok;
  * @author fdse
  */
 @RestController
-@RequestMapping("/apßi/v1/rebookservice")
+@RequestMapping("/api/v1/rebookservice")
 public class RebookController {
 
     @Autowired
