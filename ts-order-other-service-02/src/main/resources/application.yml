@@ -9,7 +9,7 @@ spring:
 #    url: jdbc:mysql://localhost:3306/ts-order-other-mysql?useSSL=false
     url: jdbc:mysql://${ORDER_OTHER_MYSQL_HOST:ts-price-mysql}:${ORDER_OTHER_MYSQL_PORT:3306}/${ORDER_OTHER_MYSQL_DATABASE:ts}?allowPublicKeyRetrieval=true&useSSL=false
     username: ${ORDER_OTHER_MYSQL_USER:root}
-    password: ${ORDER_OTHER_MYSQL_PASSWORD:zhaoyiming.18}
+    password: ${ORDER_OTHER_MYSQL_PASSWORD:Abc123%}
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:

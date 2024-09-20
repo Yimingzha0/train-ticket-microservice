@@ -4,7 +4,7 @@ spring:
   datasource:
     url: jdbc:mysql://${PRICE_MYSQL_HOST}:${PRICE_MYSQL_PORT:3306}/${PRICE_MYSQL_DATABASE:ts}?allowPublicKeyRetrieval=true&useSSL=false
     username: ${PRICE_MYSQL_USER:root}
-    password: ${PRICE_MYSQL_PASSWORD:zhaoyiming.18}
+    password: ${PRICE_MYSQL_PASSWORD:Abc123%}
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
