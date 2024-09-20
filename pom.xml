@@ -16,9 +16,8 @@
 
     <modules>
         <module>ts-common</module>
-        <module>ts-notification-service</module>
-        <module>ts-travel-service</module>
-        <module>ts-config-service</module>
+
+        <module>ts-admin-basic-info-service</module>
     </modules>
        <!--
 <module>ts-discovery-service</module>

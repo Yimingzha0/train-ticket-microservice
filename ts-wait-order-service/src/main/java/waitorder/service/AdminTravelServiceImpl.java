@@ -45,7 +45,7 @@ public class AdminTravelServiceImpl implements AdminTravelService {
 
         AdminTravelServiceImpl.LOGGER.info("[getAllTravels][Get All Travels]");
         HttpEntity requestEntity = new HttpEntity(headers);
-        String travel_service_url = getServiceUrl("ts-travel-service");
+        String travel_service_url = getServiceUrl("ts-travel-service:12346");
         ResponseEntity<Response<ArrayList<AdminTrip>>> re = restTemplate.exchange(
                 travel_service_url + "/api/v1/travelservice/admin_trip",
                 HttpMethod.GET,

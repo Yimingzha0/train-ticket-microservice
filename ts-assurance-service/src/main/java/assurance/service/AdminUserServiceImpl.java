@@ -38,7 +38,7 @@ public class AdminUserServiceImpl implements AdminUserService {
     @Override
     public Response getAllUsers(HttpHeaders headers) {
         HttpEntity requestEntity = new HttpEntity(null);
-        String user_service_url = getServiceUrl("ts-travel-service");
+        String user_service_url = getServiceUrl("ts-travel-service:12346");
         String USER_SERVICE_IP_URI = user_service_url + "/api/v1/userservice/users";
         ResponseEntity<Response<List<User>>> re = restTemplate.exchange(
                 USER_SERVICE_IP_URI,

@@ -275,7 +275,7 @@ public class AdminBasicInfoServiceImpl implements AdminBasicInfoService {
     @Override
     public Response getAllPrices(HttpHeaders headers) {
         HttpEntity requestEntity = new HttpEntity(headers);
-        String price_service_url = getServiceUrl("ts-price-service");
+        String price_service_url = getServiceUrl("ts-price-service:16579");
         String prices = price_service_url + "/api/v1/priceservice/prices";
         ResponseEntity<Response> re = restTemplate.exchange(
                 prices,
