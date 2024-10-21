@@ -1,6 +1,6 @@
 # HTTP Server
 server:
-  port: 12032  # HTTP (Tomcat) port
+  port: 12034  # HTTP (Tomcat) port
 
 spring:
   application:

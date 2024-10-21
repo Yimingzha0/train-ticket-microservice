@@ -63,7 +63,7 @@ public class SeatServiceImpl implements SeatService {
                     requestEntity,
                     new ParameterizedTypeReference<Response<LeftTicketInfo>>() {
                     });
-            SeatServiceImpl.LOGGER.info("[distributeSeat][Left ticket info][info is : {}]", re3.getBody().toString());
+            SeatServiceImpl.LOGGER.info("[distributeSeat][Left ticket fo][info is : {}]", re3.getBody().toString());
             leftTicketInfo = re3.getBody().getData();
         } else {
             SeatServiceImpl.LOGGER.info("[distributeSeat][TrainNumber start][Other Capital Except D and G]");
@@ -71,7 +71,7 @@ public class SeatServiceImpl implements SeatService {
             HttpEntity requestEntity = new HttpEntity(seatRequest, null);
             String order_other_service_url=getServiceUrl("ts-order-other-service");
             re3 = restTemplate.exchange(
-                    order_other_service_url + "/api/v1/orderOtherService/orderOther/tickets",
+                    order_other_service_url + "/api/v1/orderOtherService02/orderOther/tickets",
                     HttpMethod.POST,
                     requestEntity,
                     new ParameterizedTypeReference<Response<LeftTicketInfo>>() {
@@ -156,9 +156,9 @@ public class SeatServiceImpl implements SeatService {
             HttpEntity requestEntity = new HttpEntity(null);
             //Call the micro service to query for residual Ticket information: the set of the Ticket sold for the specified seat type
             requestEntity = new HttpEntity(seatRequest, null);
-            String order_other_service_url=getServiceUrl("ts-order-other-service");
+            String order_other_service_url=getServiceUrl("ts-order-other-service-02");
             re3 = restTemplate.exchange(
-                    order_other_service_url + "/api/v1/orderOtherService/orderOther/tickets",
+                    order_other_service_url + "/api/v1/orderOtherService02/orderOther/tickets",
                     HttpMethod.POST,
                     requestEntity,
                     new ParameterizedTypeReference<Response<LeftTicketInfo>>() {

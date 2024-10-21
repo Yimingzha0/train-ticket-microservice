@@ -21,7 +21,7 @@ services:
       - my-network
 
   ts-discovery-service:
-    image: ${NAMESPACE}/ts-discovery-service:${TAG}
+    image: yimingzha0/ts-discovery-service:0.2.3
     restart: always
     container_name: ts-discovery-service
     hostname: ts-discovery-service
@@ -29,9 +29,9 @@ services:
       - 8761:8761
     networks:
       - my-network
-
+#
 #  ts-payment-service:
-#    image: ${NAMESPACE}/ts-payment-service:${TAG}
+#    image: yimingzha0/ts-payment-service:0.2.3
 #    restart: always
 #    container_name: ts-payment-service
 #    hostname: ts-payment-service
@@ -45,13 +45,13 @@ services:
 #      - PAYMENT_MYSQL_PORT=3306
 #      - PAYMENT_MYSQL_DATABASE=ts
 #      - PAYMENT_MYSQL_USER=root
-#      - PAYMENT_MYSQL_PASSWORD=zhaoyiming.18
+#      - PAYMENT_MYSQL_PASSWORD=Abc123%
 #    depends_on:
 #      - ts-discovery-service
 #      - ts-price-mysql
-
+#
 #  ts-notification-service:
-#    image: ${NAMESPACE}/ts-notification-service:${TAG}
+#    image: yimingzha0/ts-notification-service:0.2.3
 #    restart: always
 #    container_name: ts-notification-service
 #    hostname: ts-notification-service
@@ -65,7 +65,7 @@ services:
 #      - NOTIFICATION_MYSQL_PORT=3306
 #      - NOTIFICATION_MYSQL_DATABASE=ts
 #      - NOTIFICATION_MYSQL_USER=root
-#      - NOTIFICATION_MYSQL_PASSWORD=zhaoyiming.18
+#      - NOTIFICATION_MYSQL_PASSWORD=Abc123%
 #      - RABBITMQ_HOST=rabbitmq
 #    depends_on:
 #      - ts-discovery-service
@@ -73,7 +73,7 @@ services:
 #      - rabbitmq
 #
 #  ts-inside-payment-service:
-#    image: ${NAMESPACE}/ts-inside-payment-service:${TAG}
+#    image: yimingzha0/ts-inside-payment-service:0.2.3
 #    restart: always
 #    container_name: ts-inside-payment-service
 #    hostname: ts-inside-payment-service
@@ -87,27 +87,27 @@ services:
 #      - INSIDE_PAYMENT_MYSQL_PORT=3306
 #      - INSIDE_PAYMENT_MYSQL_DATABASE=ts
 #      - INSIDE_PAYMENT_MYSQL_USER=root
-#      - INSIDE_PAYMENT_MYSQL_PASSWORD=zhaoyiming.18
+#      - INSIDE_PAYMENT_MYSQL_PASSWORD=Abc123%
 #    depends_on:
 #      - ts-discovery-service
 #      - ts-price-mysql
-
+#
 #  ts-cancel-service:
-#    image: ${NAMESPACE}/ts-cancel-service:${TAG}
+#    image: yimingzha0/ts-cancel-service:0.2.3
 #    restart: always
 #    container_name: ts-cancel-service
 #    hostname: ts-cancel-service
 #    ports:
-#      - 18753:18753
+#      - 18885:18885
 #    networks:
 #      - my-network
 #    environment:
 #      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
 #    depends_on:
 #      - ts-discovery-service
-
+#
 #  ts-security-service:
-#    image: ${NAMESPACE}/ts-security-service:${TAG}
+#    image: yimingzha0/ts-security-service:0.2.3
 #    restart: always
 #    container_name: ts-security-service
 #    hostname: ts-security-service
@@ -121,10 +121,10 @@ services:
 #      - SECURITY_MYSQL_PORT=3306
 #      - SECURITY_MYSQL_DATABASE=ts
 #      - SECURITY_MYSQL_USER=root
-#      - SECURITY_MYSQL_PASSWORD=zhaoyiming.18
+#      - SECURITY_MYSQL_PASSWORD=Abc123%
 #
 #  ts-travel-plan-service:
-#    image: ${NAMESPACE}/ts-travel-plan-service:${TAG}
+#    image: yimingzha0/ts-travel-plan-service:0.2.3
 #    restart: always
 #    container_name: ts-travel-plan-service
 #    hostname: ts-travel-plan-service
@@ -139,7 +139,7 @@ services:
 #      - ts-discovery-service
 #
 #  ts-route-plan-service:
-#    image: ${NAMESPACE}/ts-route-plan-service:${TAG}
+#    image: yimingzha0/ts-route-plan-service:0.2.3
 #    restart: always
 #    container_name: ts-route-plan-service
 #    hostname: ts-route-plan-service
@@ -154,7 +154,7 @@ services:
 #      - ts-discovery-service
 #
 #  ts-rebook-service:
-#    image: ${NAMESPACE}/ts-rebook-service:${TAG}
+#    image: yimingzha0/ts-rebook-service:0.2.3
 #    restart: always
 #    container_name: ts-rebook-service
 #    hostname: ts-rebook-service
@@ -166,9 +166,9 @@ services:
 #      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
 #    depends_on:
 #      - ts-discovery-service
-
+#
 #  ts-food-service:
-#    image: ${NAMESPACE}/ts-food-service:${TAG}
+#    image: yimingzha0/ts-food-service:0.2.3
 #    restart: always
 #    container_name: ts-food-service
 #    hostname: ts-food-service
@@ -181,32 +181,33 @@ services:
 #      - FOOD_MYSQL_PORT=3306
 #      - FOOD_MYSQL_DATABASE=ts
 #      - FOOD_MYSQL_USER=root
-#      - FOOD_MYSQL_PASSWORD=zhaoyiming.18
+#      - FOOD_MYSQL_PASSWORD=Abc123%
 #      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
 #      - RABBITMQ_HOST=rabbitmq
 #    depends_on:
 #      - ts-discovery-service
 #      - ts-price-mysql
 #      - rabbitmq
-#  ts-config-service:
-#    image: ${NAMESPACE}/ts-config-service:${TAG}
-#    restart: always
-#    container_name: ts-config-service
-#    hostname: ts-config-service
-#    ports:
-#      - 15679:15679
-#    networks:
-#      - my-network
-#    environment:
-#      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
-#      - CONFIG_MYSQL_HOST=ts-price-mysql
-#      - CONFIG_MYSQL_PORT=3306
-#      - CONFIG_MYSQL_DATABASE=ts
-#      - CONFIG_MYSQL_USER=root
-#      - CONFIG_MYSQL_PASSWORD=zhaoyiming.18
+  ts-config-service:
+    image: yimingzha0/ts-config-service:0.2.3
+    restart: always
+    ports:
+      - 15679:15679
+    networks:
+      - my-network
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
+      - CONFIG_MYSQL_HOST=ts-price-mysql
+      - CONFIG_MYSQL_PORT=3306
+      - CONFIG_MYSQL_DATABASE=ts
+      - CONFIG_MYSQL_USER=root
+      - CONFIG_MYSQL_PASSWORD=Abc123%
+    depends_on:
+      - ts-price-mysql
+      - ts-discovery-service
 #
 #  ts-preserve-other-service:
-#    image: ${NAMESPACE}/ts-preserve-other-service:${TAG}
+#    image: yimingzha0/ts-preserve-other-service:0.2.3
 #    restart: always
 #    container_name: ts-preserve-other-service
 #    hostname: ts-preserve-other-service
@@ -222,7 +223,7 @@ services:
 #        - ts-price-mysql
 #
 #  ts-wait-order-service:
-#    image: ${NAMESPACE}/ts-wait-order-service:${TAG}
+#    image: yimingzha0/ts-wait-order-service:0.2.3
 #    restart: always
 #    container_name: ts-wait-order-service
 #    hostname: ts-wait-order-service
@@ -235,14 +236,14 @@ services:
 #      - WAIT_ORDER_MYSQL_PORT=3306
 #      - WAIT_ORDER_MYSQL_DATABASE=ts
 #      - WAIT_ORDER_MYSQL_USER=root
-#      - WAIT_ORDER_MYSQL_PASSWORD=zhaoyiming.18
+#      - WAIT_ORDER_MYSQL_PASSWORD=Abc123%
 #      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
 #    depends_on:
 #      - ts-discovery-service
 #      - ts-price-mysql
 #
 #  ts-station-food-service:
-#    image: ${NAMESPACE}/ts-station-food-service:${TAG}
+#    image: yimingzha0/ts-station-food-service:0.2.3
 #    restart: always
 #    container_name: ts-station-food-service
 #    hostname: ts-station-food-service
@@ -255,14 +256,14 @@ services:
 #      - STATION_FOOD_MYSQL_PORT=3306
 #      - STATION_FOOD_MYSQL_DATABASE=ts
 #      - STATION_FOOD_MYSQL_USER=root
-#      - STATION_FOOD_MYSQL_PASSWORD=zhaoyiming.18
+#      - STATION_FOOD_MYSQL_PASSWORD=Abc123%
 #      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
 #    depends_on:
 #      - ts-discovery-service
 #      - ts-price-mysql
 #
 #  ts-preserve-service:
-#    image: ${NAMESPACE}/ts-preserve-service:${TAG}
+#    image: yimingzha0/ts-preserve-service:0.2.3
 #    restart: always
 #    container_name: ts-preserve-service
 #    hostname: ts-preserve-service
@@ -275,7 +276,7 @@ services:
 #      - PRESERVE_MYSQL_PORT=3306
 #      - PRESERVE_MYSQL_DATABASE=ts
 #      - PRESERVE_MYSQL_USER=root
-#      - PRESERVE_MYSQL_PASSWORD=zhaoyiming.18
+#      - PRESERVE_MYSQL_PASSWORD=Abc123%
 #      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
 #      - RABBITMQ_HOST=rabbitmq
 #    depends_on:
@@ -285,7 +286,7 @@ services:
 #
 #
 #  ts-food-delivery-service:
-#    image: ${NAMESPACE}/ts-food-delivery-service:${TAG}
+#    image: yimingzha0/ts-food-delivery-service:0.2.3
 #    restart: always
 #    container_name: ts-food-delivery-service
 #    hostname: ts-food-delivery-service
@@ -298,7 +299,7 @@ services:
 #      - FOOD_DELIVERY_MYSQL_PORT=3306
 #      - FOOD_DELIVERY_MYSQL_DATABASE=ts
 #      - FOOD_DELIVERY_MYSQL_USER=root
-#      - FOOD_DELIVERY_MYSQL_PASSWORD=zhaoyiming.18
+#      - FOOD_DELIVERY_MYSQL_PASSWORD=Abc123%
 #      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
 #      - RABBITMQ_HOST=rabbitmq
 #    depends_on:
@@ -306,9 +307,9 @@ services:
 #      - ts-price-mysql
 #      - rabbitmq
 #
-
+#
 #  ts-execute-service:
-#    image: ${NAMESPACE}/ts-execute-service:${TAG}
+#    image: yimingzha0/ts-execute-service:0.2.3
 #    restart: always
 #    container_name: ts-execute-service
 #    hostname: ts-execute-service
@@ -322,7 +323,7 @@ services:
 #      - ts-discovery-service
 #
 #  ts-travel-service:
-#    image: ${NAMESPACE}/ts-travel-service:${TAG}
+#    image: yimingzha0/ts-travel-service:0.2.3
 #    restart: always
 #    container_name: ts-travel-service
 #    hostname: ts-travel-service
@@ -335,14 +336,14 @@ services:
 #      - TRAVEL_MYSQL_PORT=3306
 #      - TRAVEL_MYSQL_DATABASE=ts
 #      - TRAVEL_MYSQL_USER=root
-#      - TRAVEL_MYSQL_PASSWORD=zhaoyiming.18
+#      - TRAVEL_MYSQL_PASSWORD=Abc123%
 #      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
 #    depends_on:
 #      - ts-price-mysql
 #      - ts-discovery-service
 #
 #  ts-travel2-service:
-#    image: ${NAMESPACE}/ts-travel2-service:${TAG}
+#    image: yimingzha0/ts-travel2-service:0.2.3
 #    restart: always
 #    container_name: ts-travel2-service
 #    hostname: ts-travel2-service
@@ -355,88 +356,87 @@ services:
 #      - TRAVEL2_MYSQL_PORT=3306
 #      - TRAVEL2_MYSQL_DATABASE=ts
 #      - TRAVEL2_MYSQL_USER=root
-#      - TRAVEL2_MYSQL_PASSWORD=zhaoyiming.18
+#      - TRAVEL2_MYSQL_PASSWORD=Abc123%
 #      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
 #    depends_on:
 #      - ts-price-mysql
 #      - ts-discovery-service
 #
 #
-
-  ts-order-service:
-    image: ${NAMESPACE}/ts-order-service:${TAG}
-    restart: always
-    ports:
-      - 12031:12031
-    networks:
-      - my-network
-    environment:
-      - ORDER_MYSQL_HOST=ts-price-mysql
-      - ORDER_MYSQL_PORT=3306
-      - ORDER_MYSQL_DATABASE=ts
-      - ORDER_MYSQL_USER=root
-      - ORDER_MYSQL_PASSWORD=zhaoyiming.18
-      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
-    depends_on:
-      - ts-price-mysql
-      - ts-discovery-service
-
-  ts-order-other-service:
-    image: ${NAMESPACE}/ts-order-other-service:${TAG}
-    restart: always
-    ports:
-      - 12032:12032
-    networks:
-      - my-network
-    environment:
-      - ORDER_OTHER_MYSQL_HOST=ts-price-mysql
-      - ORDER_OTHER_MYSQL_PORT=3306
-      - ORDER_OTHER_MYSQL_DATABASE=ts
-      - ORDER_OTHER_MYSQL_USER=root
-      - ORDER_OTHER_MYSQL_PASSWORD=zhaoyiming.18
-      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
-    depends_on:
-      - ts-price-mysql
-      - ts-discovery-service
-
-  ts-other-service-02:
-    image: ${NAMESPACE}/ts-other-service-02:${TAG}
-    restart: always
-    ports:
-      - 12033:12033
-    networks:
-      - my-network
-    environment:
-      - OTHER_MYSQL_HOST=ts-price-mysql
-      - OTHER_MYSQL_PORT=3306
-      - OTHER_MYSQL_DATABASE=ts
-      - OTHER_MYSQL_USER=root
-      - OTHER_MYSQL_PASSWORD=zhaoyiming.18
-      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
-    depends_on:
-      - ts-price-mysql
-      - ts-discovery-service
-
-  ts-order-other-service-02:
-    image: ${NAMESPACE}/ts-order-other-service-02:${TAG}
-    restart: always
-    ports:
-      - 12034:12034
-    networks:
-      - my-network
-    environment:
-      - ORDER_OTHER_MYSQL_HOST=ts-price-mysql
-      - ORDER_OTHER_MYSQL_PORT=3306
-      - ORDER_OTHER_MYSQL_DATABASE=ts
-      - ORDER_OTHER_MYSQL_USER=root
-      - ORDER_OTHER_MYSQL_PASSWORD=zhaoyiming.18
-      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
-    depends_on:
-      - ts-price-mysql
-      - ts-discovery-service
-
+#  ts-order-service:
+#    image: yimingzha0/ts-order-service:0.2.3
+#    restart: always
+#    ports:
+#      - 12031:12031
+#    networks:
+#      - my-network
+#    environment:
+#      - ORDER_MYSQL_HOST=ts-price-mysql
+#      - ORDER_MYSQL_PORT=3306
+#      - ORDER_MYSQL_DATABASE=ts
+#      - ORDER_MYSQL_USER=root
+#      - ORDER_MYSQL_PASSWORD=Abc123%
+#      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
+#    depends_on:
+#      - ts-price-mysql
+#      - ts-discovery-service
+#
+#  ts-order-other-service:
+#    image: yimingzha0/ts-order-other-service:0.2.3
+#    restart: always
+#    ports:
+#      - 12032:12032
+#    networks:
+#      - my-network
+#    environment:
+#      - ORDER_OTHER_MYSQL_HOST=ts-price-mysql
+#      - ORDER_OTHER_MYSQL_PORT=3306
+#      - ORDER_OTHER_MYSQL_DATABASE=ts
+#      - ORDER_OTHER_MYSQL_USER=root
+#      - ORDER_OTHER_MYSQL_PASSWORD=Abc123%
+#      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
+#    depends_on:
+#      - ts-price-mysql
+#      - ts-discovery-service
+#
+#  ts-order-service-02:
+#    image: yimingzha0/ts-order-service-02:0.2.3
+#    restart: always
+#    ports:
+#      - 12033:12033
+#    networks:
+#      - my-network
+#    environment:
+#      - OTHER_MYSQL_HOST=ts-price-mysql
+#      - OTHER_MYSQL_PORT=3306
+#      - OTHER_MYSQL_DATABASE=ts
+#      - OTHER_MYSQL_USER=root
+#      - OTHER_MYSQL_PASSWORD=Abc123%
+#      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
+#    depends_on:
+#      - ts-price-mysql
+#      - ts-discovery-service
+#
+#  ts-order-other-service-02:
+#    image: yimingzha0/ts-order-other-service-02:0.2.3
+#    restart: always
+#    ports:
+#      - 12034:12034
+#    networks:
+#      - my-network
+#    environment:
+#      - ORDER_OTHER_MYSQL_HOST=ts-price-mysql
+#      - ORDER_OTHER_MYSQL_PORT=3306
+#      - ORDER_OTHER_MYSQL_DATABASE=ts
+#      - ORDER_OTHER_MYSQL_USER=root
+#      - ORDER_OTHER_MYSQL_PASSWORD=Abc123%
+#      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
+#    depends_on:
+#      - ts-price-mysql
+#      - ts-discovery-service
+#
 #  ts-train-service:
-#    image: ${NAMESPACE}/ts-train-service:${TAG}
+#    image: yimingzha0/ts-train-service:0.2.3
 #    restart: always
 #    ports:
 #      - 14567:14567
@@ -447,14 +447,14 @@ services:
 #      - TRAIN_MYSQL_PORT=3306
 #      - TRAIN_MYSQL_DATABASE=ts
 #      - TRAIN_MYSQL_USER=root
-#      - TRAIN_MYSQL_PASSWORD=zhaoyiming.18
+#      - TRAIN_MYSQL_PASSWORD=Abc123%
 #      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
 #    depends_on:
 #      - ts-price-mysql
 #      - ts-discovery-service
 #
 #  ts-route-service:
-#    image: ${NAMESPACE}/ts-route-service:${TAG}
+#    image: yimingzha0/ts-route-service:0.2.3
 #    restart: always
 #    ports:
 #      - 11178:11178
@@ -465,13 +465,13 @@ services:
 #      - ROUTE_MYSQL_PORT=3306
 #      - ROUTE_MYSQL_DATABASE=ts
 #      - ROUTE_MYSQL_USER=root
-#      - ROUTE_MYSQL_PASSWORD=zhaoyiming.18
+#      - ROUTE_MYSQL_PASSWORD=Abc123%
 #      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
 #    depends_on:
 #      - ts-price-mysql
 #      - ts-discovery-service
 #  ts-basic-service:
-#    image: ${NAMESPACE}/ts-basic-service:${TAG}
+#    image: yimingzha0/ts-basic-service:0.2.3
 #    restart: always
 #    ports:
 #      - 15680:15680
@@ -483,7 +483,7 @@ services:
 #      - ts-discovery-service
 #
 #  ts-seat-service:
-#    image: ${NAMESPACE}/ts-seat-service:${TAG}
+#    image: yimingzha0/ts-seat-service:0.2.3
 #    restart: always
 #    ports:
 #      - 18898:18898
@@ -495,7 +495,7 @@ services:
 #      - ts-discovery-service
 #
 #  ts-station-service:
-#    image: ${NAMESPACE}/ts-station-service:${TAG}
+#    image: yimingzha0/ts-station-service:0.2.3
 #    restart: always
 #    ports:
 #      - 12345:12345
@@ -506,14 +506,14 @@ services:
 #      - STATION_MYSQL_PORT=3306
 #      - STATION_MYSQL_DATABASE=ts
 #      - STATION_MYSQL_USER=root
-#      - STATION_MYSQL_PASSWORD=zhaoyiming.18
+#      - STATION_MYSQL_PASSWORD=Abc123%
 #      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
 #    depends_on:
 #      - ts-price-mysql
 #      - ts-discovery-service
-
+#
 #  ts-contacts-service:
-#    image: ${NAMESPACE}/ts-contacts-service:${TAG}
+#    image: yimingzha0/ts-contacts-service:0.2.3
 #    restart: always
 #    ports:
 #      - 12347:12347
@@ -524,50 +524,50 @@ services:
 #      - CONTACT_MYSQL_PORT=3306
 #      - CONTACT_MYSQL_DATABASE=ts
 #      - CONTACT_MYSQL_USER=root
-#      - CONTACT_MYSQL_PASSWORD=zhaoyiming.18
+#      - CONTACT_MYSQL_PASSWORD=Abc123%
 #      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
 #    depends_on:
 #      - ts-price-mysql
 #      - ts-discovery-service
-#
-#  ts-admin-basic-info-service:
-#    image: ${NAMESPACE}/ts-admin-basic-info-service:${TAG}
-#    restart: always
-#    ports:
-#      - 18767:18767
-#    networks:
-#      - my-network
-#    environment:
-#      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
-#    depends_on:
-#      - ts-discovery-service
-#
-#  ts-admin-basic-info-service-02:
-#    image: ${NAMESPACE}/ts-admin-basic-info-service-02:${TAG}
-#    restart: always
-#    ports:
-#      - 18768:18768
-#    networks:
-#      - my-network
-#    environment:
-#      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
-#    depends_on:
-#        - ts-discovery-service
-#
-#  ts-admin-basic-info-service-03:
-#    image: ${NAMESPACE}/ts-admin-basic-info-service-03:${TAG}
-#    restart: always
-#    ports:
-#      - 18769:18769
-#    networks:
-#      - my-network
-#    environment:
-#      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
-#    depends_on:
-#      - ts-discovery-service
-#
+
+  ts-admin-basic-info-service:
+    image: yimingzha0/ts-admin-basic-info-service:0.2.3
+    restart: always
+    ports:
+      - 18767:18767
+    networks:
+      - my-network
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
+    depends_on:
+      - ts-discovery-service
+
+  ts-admin-basic-info-service-02:
+    image: yimingzha0/ts-admin-basic-info-service-02:0.2.3
+    restart: always
+    ports:
+      - 18768:18768
+    networks:
+      - my-network
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
+    depends_on:
+        - ts-discovery-service
+
+  ts-admin-basic-info-service-03:
+    image: yimingzha0/ts-admin-basic-info-service-03:0.2.3
+    restart: always
+    ports:
+      - 18769:18769
+    networks:
+      - my-network
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
+    depends_on:
+      - ts-discovery-service
+
 #  ts-price-service:
-#    image: ${NAMESPACE}/ts-price-service:${TAG}
+#    image: yimingzha0/ts-price-service:0.2.3
 #    restart: always
 #    ports:
 #      - 16579:16579
@@ -578,15 +578,15 @@ services:
 #      - PRICE_MYSQL_PORT=3306
 #      - PRICE_MYSQL_DATABASE=ts
 #      - PRICE_MYSQL_USER=root
-#      - PRICE_MYSQL_PASSWORD=zhaoyiming.18
+#      - PRICE_MYSQL_PASSWORD=Abc123%
 #      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
 #    depends_on:
 #      - ts-price-mysql
 #      - ts-discovery-service
 #
-
-#   ts-train-food-service:
-#    image: ${NAMESPACE}/ts-train-food-service:${TAG}
+#
+#  ts-train-food-service:
+#    image: yimingzha0/ts-train-food-service:0.2.3
 #    restart: always
 #    ports:
 #      - 19999:19999
@@ -597,14 +597,14 @@ services:
 #      - TRAIN_FOOD_MYSQL_PORT=3306
 #      - TRAIN_FOOD_MYSQL_DATABASE=ts
 #      - TRAIN_FOOD_MYSQL_USER=root
-#      - TRAIN_FOOD_MYSQL_PASSWORD=zhaoyiming.18
+#      - TRAIN_FOOD_MYSQL_PASSWORD=Abc123%
 #      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
 #    depends_on:
 #      - ts-price-mysql
 #      - ts-discovery-service
-
+#
 #  ts-admin-order-service:
-#      image: ${NAMESPACE}/ts-admin-order-service:${TAG}
+#      image: yimingzha0/ts-admin-order-service:0.2.3
 #      restart: always
 #      ports:
 #        - 16112:16112
@@ -616,7 +616,7 @@ services:
 #        - ts-discovery-service
 #
 #  ts-admin-user-service:
-#      image: ${NAMESPACE}/ts-admin-user-service:${TAG}
+#      image: yimingzha0/ts-admin-user-service:0.2.3
 #      restart: always
 #      ports:
 #        - 16115:16115
@@ -628,7 +628,7 @@ services:
 #        - ts-discovery-service
 #
 #  ts-assurance-service:
-#      image: ${NAMESPACE}/ts-assurance-service:${TAG}
+#      image: yimingzha0/ts-assurance-service:0.2.3
 #      restart: always
 #      ports:
 #        - 18888:18888
@@ -639,13 +639,13 @@ services:
 #        - ASSURANCE_MYSQL_PORT=3306
 #        - ASSURANCE_MYSQL_DATABASE=ts
 #        - ASSURANCE_MYQL_USER=root
-#        - ASSURANCE_MYSQL_PASSWORD=zhaoyiming.18
+#        - ASSURANCE_MYSQL_PASSWORD=Abc123%
 #        - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
 #      depends_on:
 #        - ts-discovery-service
 #
 #  ts-user-service:
-#      image: ${NAMESPACE}/ts-user-service:${TAG}
+#      image: yimingzha0/ts-user-service:0.2.3
 #      restart: always
 #      ports:
 #        - 12342:12342
@@ -656,13 +656,13 @@ services:
 #        - USER_MYSQL_PORT=3306
 #        - USER_MYSQL_DATABASE=ts
 #        - USER_MYSQL_USER=root
-#        - USER_MYSQL_PASSWORD=zhaoyiming.18
+#        - USER_MYSQL_PASSWORD=Abc123%
 #        - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
 #      depends_on:
 #        - ts-discovery-service
 #
 #  ts-admin-route-service:
-#      image: ${NAMESPACE}/ts-admin-route-service:${TAG}
+#      image: yimingzha0/ts-admin-route-service:0.2.3
 #      restart: always
 #      ports:
 #        - 16113:16113
@@ -674,7 +674,7 @@ services:
 #        - ts-discovery-service
 #
 #  ts-admin-travel-service:
-#      image: ${NAMESPACE}/ts-admin-travel-service:${TAG}
+#      image: yimingzha0/ts-admin-travel-service:0.2.3
 #      restart: always
 #      ports:
 #        - 16114:16114
@@ -686,7 +686,7 @@ services:
 #        - ts-discovery-service
 #
 #  ts-consign-service:
-#      image: ${NAMESPACE}/ts-consign-service:${TAG}
+#      image: yimingzha0/ts-consign-service:0.2.3
 #      restart: always
 #      ports:
 #        - 16111:16111
@@ -697,14 +697,14 @@ services:
 #        - CONSIGN_MYSQL_PORT=3306
 #        - CONSIGN_MYSQL_DATABASE=ts
 #        - CONSIGN_MYSQL_USER=root
-#        - CONSIGN_MYSQL_PASSWORD=zhaoyiming.18
+#        - CONSIGN_MYSQL_PASSWORD=Abc123%
 #        - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
 #      depends_on:
 #        - ts-price-mysql
 #        - ts-discovery-service
 #
 #  ts-consign-price-service:
-#      image: ${NAMESPACE}/ts-consign-price-service:${TAG}
+#      image: yimingzha0/ts-consign-price-service:0.2.3
 #      restart: always
 #      ports:
 #        - 16110:16110
@@ -715,7 +715,7 @@ services:
 #        - CONSIGN_PRICE_MYSQL_PORT=3306
 #        - CONSIGN_PRICE_MYSQL_DATABASE=ts
 #        - CONSIGN_PRICE_MYSQL_USER=root
-#        - CONSIGN_PRICE_MYSQL_PASSWORD=zhaoyiming.18
+#        - CONSIGN_PRICE_MYSQL_PASSWORD=Abc123%
 #        - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://ts-discovery-service:8761/eureka/
 #      depends_on:
 #        - ts-price-mysql

@@ -5,4 +5,4 @@ RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo 'Asia/Shang
 ADD ./target/ts-admin-basic-info-service-02-1.0.jar /app/
 CMD ["java", "-Xmx200m",  "-jar", "/app/ts-admin-basic-info-service-02-1.0.jar"]
 
-EXPOSE 18769
+EXPOSE 18768

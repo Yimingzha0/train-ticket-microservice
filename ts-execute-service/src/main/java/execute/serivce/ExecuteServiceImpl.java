@@ -137,9 +137,9 @@ public class ExecuteServiceImpl implements ExecuteService {
         ExecuteServiceImpl.LOGGER.info("[Execute Service][Execute Order] Executing....");
         headers = null;
         HttpEntity requestEntity = new HttpEntity(headers);
-        String order_service_url=getServiceUrl("ts-order-service");
+        String order_service_url=getServiceUrl("ts-order-service-02");
         ResponseEntity<Response> re = restTemplate.exchange(
-                order_service_url + "/api/v1/orderservice/order/status/" + orderId + "/" + status,
+                order_service_url + "/api/v1/orderservice02/order/status/" + orderId + "/" + status,
                 HttpMethod.GET,
                 requestEntity,
                 Response.class);
@@ -151,9 +151,9 @@ public class ExecuteServiceImpl implements ExecuteService {
         ExecuteServiceImpl.LOGGER.info("[Execute Service][Execute Order] Executing....");
         headers = null;
         HttpEntity requestEntity = new HttpEntity(headers);
-        String order_other_service_url=getServiceUrl("ts-order-other-service");
+        String order_other_service_url=getServiceUrl("ts-order-other-service-02");
         ResponseEntity<Response> re = restTemplate.exchange(
-                order_other_service_url + "/api/v1/orderOtherService/orderOther/status/" + orderId + "/" + status,
+                order_other_service_url + "/api/v1/orderOtherService02/orderOther/status/" + orderId + "/" + status,
                 HttpMethod.GET,
                 requestEntity,
                 Response.class);
@@ -164,9 +164,9 @@ public class ExecuteServiceImpl implements ExecuteService {
         ExecuteServiceImpl.LOGGER.info("[Execute Service][Get Order] Getting....");
         headers = null;
         HttpEntity requestEntity = new HttpEntity(headers);
-        String order_service_url=getServiceUrl("ts-order-service");
+        String order_service_url=getServiceUrl("ts-order-service-02");
         ResponseEntity<Response<Order>> re = restTemplate.exchange(
-                order_service_url + "/api/v1/orderservice/order/" + orderId,
+                order_service_url + "/api/v1/orderservice02/order/" + orderId,
                 HttpMethod.GET,
                 requestEntity,
                 new ParameterizedTypeReference<Response<Order>>() {
@@ -178,9 +178,9 @@ public class ExecuteServiceImpl implements ExecuteService {
         ExecuteServiceImpl.LOGGER.info("[getOrderByIdFromOrderOther][Execute Service, Get Order]");
         headers = null;
         HttpEntity requestEntity = new HttpEntity(headers);
-        String order_other_service_url=getServiceUrl("ts-order-other-service");
+        String order_other_service_url=getServiceUrl("ts-order-other-service-02");
         ResponseEntity<Response<Order>> re = restTemplate.exchange(
-                order_other_service_url + "/api/v1/orderOtherService/orderOther/" + orderId,
+                order_other_service_url + "/api/v1/orderOtherService02/orderOther/" + orderId,
                 HttpMethod.GET,
                 requestEntity,
                 new ParameterizedTypeReference<Response<Order>>() {

@@ -40,7 +40,7 @@ public class AdminBasicInfoServiceImpl implements AdminBasicInfoService {
     @Override
     public Response getAllConfigs(HttpHeaders headers) {
         HttpEntity requestEntity = new HttpEntity(headers);
-        String config_service_url = getServiceUrl("ts-config-service");
+        String config_service_url = getServiceUrl("145.108.225.14:15679");
         String configs = config_service_url + "/api/v1/configservice/configs";
         ResponseEntity<Response> re = restTemplate.exchange(
                 configs,

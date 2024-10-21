@@ -6,7 +6,7 @@ spring:
   application:
     name: ts-order-service-02
   datasource:
-    url: jdbc:mysql://${ORDER_MYSQL_HOST}:${ORDER_MYSQL_PORT:3306}/${ORDER_MYSQL_DATABASE:ts}?allowPublicKeyRetrieval=true&useSSL=false
+    url: jdbc:mysql://${ORDER_MYSQL_HOST:ts-price-mysql}:${ORDER_MYSQL_PORT:3306}/${ORDER_MYSQL_DATABASE:ts}?allowPublicKeyRetrieval=true&useSSL=false
     username: ${ORDER_MYSQL_USER:root}
     password: ${ORDER_MYSQL_PASSWORD:Abc123%}
     driver-class-name: com.mysql.cj.jdbc.Driver

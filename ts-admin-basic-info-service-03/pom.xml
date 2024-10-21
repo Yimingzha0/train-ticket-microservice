@@ -38,12 +38,7 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
-        <dependency>
-            <groupId>fdse.microservice</groupId>
-            <artifactId>ts-admin-basic-info-service</artifactId>
-            <version>1.0</version>
-            <scope>compile</scope>
-        </dependency>
+
     </dependencies>
 
     <build>
